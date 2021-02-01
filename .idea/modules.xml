@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/homebrew-test-bot.iml" filepath="$PROJECT_DIR$/.idea/homebrew-test-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/templates.iml" filepath="$PROJECT_DIR$/.idea/modules/templates.iml" />
     </modules>
   </component>
 </project>
