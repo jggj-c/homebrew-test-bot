@@ -1,0 +1,406 @@
+[2021-02-01 20:25:06Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2021-02-01 20:25:06Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:06Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:06Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:25:07Z INFO Listener] Runner is built for OSX (X64) - osx-x64.
+[2021-02-01 20:25:07Z INFO Listener] RuntimeInformation: Darwin 19.6.0 Darwin Kernel Version 19.6.0: Mon Aug 31 22:12:52 PDT 2020; root:xnu-6153.141.2~1/RELEASE_X86_64.
+[2021-02-01 20:25:08Z INFO Listener] Version: 2.276.1
+[2021-02-01 20:25:08Z INFO Listener] Commit: 5effa808be96eae7f2e08d713426b8d056bddff1
+[2021-02-01 20:25:08Z INFO Listener] Culture: en-US
+[2021-02-01 20:25:08Z INFO Listener] UI Culture: en-US
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:08Z INFO Listener] Validating directory permissions for: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:08Z INFO CommandLineParser] Parse
+[2021-02-01 20:25:08Z INFO CommandLineParser] Parsing 1 args
+[2021-02-01 20:25:08Z INFO CommandLineParser] parsing argument
+[2021-02-01 20:25:08Z INFO CommandLineParser] HasArgs: False
+[2021-02-01 20:25:08Z INFO CommandLineParser] Adding Command: run
+[2021-02-01 20:25:08Z INFO Listener] Arguments parsed
+[2021-02-01 20:25:08Z INFO Runner] ExecuteCommand
+[2021-02-01 20:25:08Z INFO ConfigurationStore] currentAssemblyLocation: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Listener.dll
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:08Z INFO ConfigurationStore] binPath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:08Z INFO ConfigurationStore] RootFolder: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:08Z INFO HostContext] Well known config file 'Runner': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.runner'
+[2021-02-01 20:25:08Z INFO ConfigurationStore] ConfigFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.runner
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:08Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:25:08Z INFO ConfigurationStore] CredFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:08Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_migrated'
+[2021-02-01 20:25:08Z INFO ConfigurationStore] MigratedCredFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_migrated
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:08Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:08Z INFO HostContext] Well known config file 'Service': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.service'
+[2021-02-01 20:25:08Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.service
+[2021-02-01 20:25:08Z INFO CommandSettings] Flag 'help': 'False'
+[2021-02-01 20:25:08Z INFO CommandSettings] Flag 'version': 'False'
+[2021-02-01 20:25:08Z INFO CommandSettings] Flag 'commit': 'False'
+[2021-02-01 20:25:08Z INFO CommandSettings] Flag 'check': 'False'
+[2021-02-01 20:25:08Z INFO CommandSettings] Command 'configure': 'False'
+[2021-02-01 20:25:08Z INFO CommandSettings] Command 'remove': 'False'
+[2021-02-01 20:25:08Z INFO CommandSettings] Command 'warmup': 'False'
+[2021-02-01 20:25:08Z INFO ConfigurationManager] LoadSettings
+[2021-02-01 20:25:08Z INFO ConfigurationStore] IsConfigured()
+[2021-02-01 20:25:08Z INFO ConfigurationStore] IsConfigured: True
+[2021-02-01 20:25:08Z INFO ConfigurationManager] Is configured: True
+[2021-02-01 20:25:08Z INFO ConfigurationStore] Read setting file: 298 chars
+[2021-02-01 20:25:08Z INFO ConfigurationManager] Settings Loaded
+[2021-02-01 20:25:08Z INFO ConfigurationStore] IsServiceConfigured()
+[2021-02-01 20:25:08Z INFO ConfigurationStore] IsServiceConfigured: False
+[2021-02-01 20:25:08Z INFO CommandSettings] Command 'run': 'True'
+[2021-02-01 20:25:08Z INFO ConfigurationStore] IsConfigured()
+[2021-02-01 20:25:08Z INFO ConfigurationStore] IsConfigured: True
+[2021-02-01 20:25:08Z INFO ConfigurationManager] Is configured: True
+[2021-02-01 20:25:08Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2021-02-01 20:25:08Z INFO Runner] Set runner startup type - Manual
+[2021-02-01 20:25:08Z INFO CommandSettings] Flag 'once': 'False'
+[2021-02-01 20:25:08Z INFO Runner] RunAsync
+[2021-02-01 20:25:08Z INFO ConfigurationManager] LoadSettings
+[2021-02-01 20:25:08Z INFO ConfigurationStore] IsConfigured()
+[2021-02-01 20:25:08Z INFO ConfigurationStore] IsConfigured: True
+[2021-02-01 20:25:08Z INFO ConfigurationManager] Is configured: True
+[2021-02-01 20:25:08Z INFO ConfigurationManager] Settings Loaded
+[2021-02-01 20:25:08Z INFO MessageListener] {
+  "AgentId": 22,
+  "AgentName": "rews-MacBook-Pro",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd",
+  "GitHubUrl": "https://github.com/jggj-c/homebrew-test-bot",
+  "WorkFolder": "_work"
+}
+[2021-02-01 20:25:08Z INFO MessageListener] Loading Credentials
+[2021-02-01 20:25:08Z INFO ConfigurationStore] HasCredentials()
+[2021-02-01 20:25:08Z INFO ConfigurationStore] stored True
+[2021-02-01 20:25:08Z INFO CredentialManager] GetCredentialProvider
+[2021-02-01 20:25:08Z INFO CredentialManager] Creating type OAuth
+[2021-02-01 20:25:08Z INFO CredentialManager] Creating credential type: OAuth
+[2021-02-01 20:25:09Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:09Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:09Z INFO HostContext] Well known config file 'RSACredentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams'
+[2021-02-01 20:25:09Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:25:09Z INFO MessageListener] Attempt to create session.
+[2021-02-01 20:25:09Z INFO MessageListener] Connecting to the Runner Server...
+[2021-02-01 20:25:09Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2021-02-01 20:25:10Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:25:11Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-02-01 20:25:11Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:25:11Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-02-01 20:25:11Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:25:12Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:25:12Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:25:12Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:25:13Z INFO MessageListener] VssConnection created
+[2021-02-01 20:25:13Z INFO Terminal] WRITE LINE: 
+[2021-02-01 20:25:13Z INFO Terminal] WRITE LINE: 
+[2021-02-01 20:25:14Z WARN GitHubActionsService] Authentication failed with status code 401.
+Transfer-Encoding: chunked
+WWW-Authenticate: Bearer
+Strict-Transport-Security: max-age=2592000
+X-TFS-ProcessId: 301001ae-0743-4eb5-b8a2-a1595d4a5ac2
+ActivityId: f53a8dd6-4e12-4109-8d2c-b1456492d219
+X-TFS-Session: dae5a26b-aff9-42e8-84a8-914c87e55ccd
+X-VSS-E2EID: c1f29d43-45c3-4bcf-92f2-b15b59dc8d8d
+X-VSS-SenderDeploymentId: a07ab14e-025a-39c3-8d53-788cd7ce207f
+X-TFS-ServiceError: The+user+%27System%3aPublicAccess%3baaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa%27+is+not+authorized+to+access+this+resource.
+X-VSS-S2STargetService: 0000005A-0000-8888-8000-000000000000/visualstudio.com
+X-MSEdge-Ref: Ref A: D67CCFC7A2BD4976BF4BB04DFB5BBDFB Ref B: DXB30EDGE0108 Ref C: 2021-02-01T20:25:13Z
+Date: Mon, 01 Feb 2021 20:25:13 GMT
+
+[2021-02-01 20:25:14Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:25:14Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:25:15Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2021-02-01 20:25:15Z INFO MessageListener] Session created.
+[2021-02-01 20:25:15Z INFO Terminal] WRITE LINE: 2021-02-01 20:25:15Z: Listening for Jobs
+[2021-02-01 20:25:15Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2021-02-01 20:26:49Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:26:49Z INFO MessageListener] Message '1' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:26:50Z INFO JobDispatcher] Job request 1 for plan be589948-1563-4c2e-a112-e65903798bad job 1922b6d9-bc7f-58d9-700c-a282774f1599 received.
+[2021-02-01 20:26:50Z INFO JobDispatcher] Pull OrchestrationId be589948-1563-4c2e-a112-e65903798bad.tests.macos-latest from JWT claims
+[2021-02-01 20:26:50Z INFO Terminal] WRITE LINE: 2021-02-01 20:26:50Z: Running job: tests (macOS-latest)
+[2021-02-01 20:26:50Z INFO JobDispatcher] Start renew job request 1 for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:26:52Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 2/1/2021 8:36:52 PM
+[2021-02-01 20:26:52Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   File name: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 100 103'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-02-01 20:26:52Z INFO ProcessInvokerWrapper] Process started with process id 59285, waiting for process exit.
+[2021-02-01 20:26:52Z INFO JobDispatcher] Send job request message to worker for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:26:53Z INFO JobNotification] Entering JobStarted Notification
+[2021-02-01 20:26:53Z INFO JobNotification] Entering StartMonitor
+[2021-02-01 20:27:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:27:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:27:37Z INFO ProcessInvokerWrapper] Finished process 59285 with exit code 102, and elapsed time 00:00:44.7487588.
+[2021-02-01 20:27:37Z INFO JobDispatcher] Worker finished for job 1922b6d9-bc7f-58d9-700c-a282774f1599. Code: 102
+[2021-02-01 20:27:37Z INFO JobDispatcher] finish job request for job 1922b6d9-bc7f-58d9-700c-a282774f1599 with result: Failed
+[2021-02-01 20:27:37Z INFO Terminal] WRITE LINE: 2021-02-01 20:27:37Z: Job tests (macOS-latest) completed with result: Failed
+[2021-02-01 20:27:37Z INFO JobDispatcher] Stop renew job request for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:27:37Z INFO JobDispatcher] job renew has been canceled, stop renew job request 1.
+[2021-02-01 20:27:37Z INFO JobNotification] Entering JobCompleted Notification
+[2021-02-01 20:27:37Z INFO JobNotification] Entering EndMonitor
+[2021-02-01 20:27:39Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:27:40Z INFO MessageListener] Message '2' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:27:40Z INFO JobDispatcher] Job request 2 for plan be589948-1563-4c2e-a112-e65903798bad job e29387e2-900f-5996-ba66-117cdf82e928 received.
+[2021-02-01 20:27:40Z INFO JobDispatcher] Pull OrchestrationId be589948-1563-4c2e-a112-e65903798bad.tests.ubuntu-latest from JWT claims
+[2021-02-01 20:27:40Z INFO JobDispatcher] Job request 1922b6d9-bc7f-58d9-700c-a282774f1599 processed succeed.
+[2021-02-01 20:27:40Z INFO Terminal] WRITE LINE: 2021-02-01 20:27:40Z: Running job: tests (ubuntu-latest)
+[2021-02-01 20:27:40Z INFO JobDispatcher] Start renew job request 2 for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:27:40Z INFO JobDispatcher] Successfully renew job request 2, job is valid till 2/1/2021 8:37:40 PM
+[2021-02-01 20:27:40Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   File name: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 100 103'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-02-01 20:27:40Z INFO ProcessInvokerWrapper] Process started with process id 60096, waiting for process exit.
+[2021-02-01 20:27:40Z INFO JobDispatcher] Send job request message to worker for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:27:40Z INFO JobNotification] Entering JobStarted Notification
+[2021-02-01 20:27:40Z INFO JobNotification] Entering StartMonitor
+[2021-02-01 20:27:42Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:27:42Z INFO MessageListener] Message '3' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:27:42Z INFO JobDispatcher] Job cancellation request e29387e2-900f-5996-ba66-117cdf82e928 received, cancellation timeout 5 minutes.
+[2021-02-01 20:27:42Z INFO JobDispatcher] Send job cancellation message to worker for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:27:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:27:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:27:58Z INFO ProcessInvokerWrapper] Finished process 60096 with exit code 103, and elapsed time 00:00:18.4187346.
+[2021-02-01 20:27:58Z INFO JobDispatcher] finish job request for job e29387e2-900f-5996-ba66-117cdf82e928 with result: Canceled
+[2021-02-01 20:27:58Z INFO Terminal] WRITE LINE: 2021-02-01 20:27:58Z: Job tests (ubuntu-latest) completed with result: Canceled
+[2021-02-01 20:27:58Z INFO JobDispatcher] Stop renew job request for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:27:58Z INFO JobDispatcher] job renew has been canceled, stop renew job request 2.
+[2021-02-01 20:27:58Z INFO JobNotification] Entering JobCompleted Notification
+[2021-02-01 20:27:58Z INFO JobNotification] Entering EndMonitor
+[2021-02-01 20:28:30Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:28:31Z INFO MessageListener] Message '4' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:28:31Z INFO JobDispatcher] Job request 3 for plan 90810f25-9ac6-444f-839c-8ff837e616b5 job 1922b6d9-bc7f-58d9-700c-a282774f1599 received.
+[2021-02-01 20:28:31Z INFO JobDispatcher] Pull OrchestrationId 90810f25-9ac6-444f-839c-8ff837e616b5.tests.macos-latest from JWT claims
+[2021-02-01 20:28:31Z INFO JobDispatcher] Job request e29387e2-900f-5996-ba66-117cdf82e928 processed succeed.
+[2021-02-01 20:28:31Z INFO Terminal] WRITE LINE: 2021-02-01 20:28:31Z: Running job: tests (macOS-latest)
+[2021-02-01 20:28:31Z INFO JobDispatcher] Start renew job request 3 for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:28:31Z INFO JobDispatcher] Successfully renew job request 3, job is valid till 2/1/2021 8:38:31 PM
+[2021-02-01 20:28:31Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   File name: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 100 103'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-02-01 20:28:31Z INFO ProcessInvokerWrapper] Process started with process id 65717, waiting for process exit.
+[2021-02-01 20:28:31Z INFO JobDispatcher] Send job request message to worker for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:28:31Z INFO JobNotification] Entering JobStarted Notification
+[2021-02-01 20:28:31Z INFO JobNotification] Entering StartMonitor
+[2021-02-01 20:29:11Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:29:11Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:29:11Z INFO ProcessInvokerWrapper] Finished process 65717 with exit code 102, and elapsed time 00:00:39.6790436.
+[2021-02-01 20:29:11Z INFO JobDispatcher] Worker finished for job 1922b6d9-bc7f-58d9-700c-a282774f1599. Code: 102
+[2021-02-01 20:29:11Z INFO JobDispatcher] finish job request for job 1922b6d9-bc7f-58d9-700c-a282774f1599 with result: Failed
+[2021-02-01 20:29:11Z INFO Terminal] WRITE LINE: 2021-02-01 20:29:11Z: Job tests (macOS-latest) completed with result: Failed
+[2021-02-01 20:29:11Z INFO JobDispatcher] Stop renew job request for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:29:11Z INFO JobDispatcher] job renew has been canceled, stop renew job request 3.
+[2021-02-01 20:29:11Z INFO JobNotification] Entering JobCompleted Notification
+[2021-02-01 20:29:11Z INFO JobNotification] Entering EndMonitor
+[2021-02-01 20:29:12Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:29:12Z INFO MessageListener] Message '5' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:29:13Z INFO JobDispatcher] Job request 4 for plan 90810f25-9ac6-444f-839c-8ff837e616b5 job e29387e2-900f-5996-ba66-117cdf82e928 received.
+[2021-02-01 20:29:13Z INFO JobDispatcher] Pull OrchestrationId 90810f25-9ac6-444f-839c-8ff837e616b5.tests.ubuntu-latest from JWT claims
+[2021-02-01 20:29:13Z INFO JobDispatcher] Job request 1922b6d9-bc7f-58d9-700c-a282774f1599 processed succeed.
+[2021-02-01 20:29:13Z INFO Terminal] WRITE LINE: 2021-02-01 20:29:13Z: Running job: tests (ubuntu-latest)
+[2021-02-01 20:29:13Z INFO JobDispatcher] Start renew job request 4 for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:29:13Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 2/1/2021 8:39:13 PM
+[2021-02-01 20:29:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   File name: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 100 103'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-02-01 20:29:13Z INFO ProcessInvokerWrapper] Process started with process id 68319, waiting for process exit.
+[2021-02-01 20:29:13Z INFO JobDispatcher] Send job request message to worker for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:29:13Z INFO JobNotification] Entering JobStarted Notification
+[2021-02-01 20:29:13Z INFO JobNotification] Entering StartMonitor
+[2021-02-01 20:29:15Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:29:15Z INFO MessageListener] Message '6' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:29:15Z INFO JobDispatcher] Job cancellation request e29387e2-900f-5996-ba66-117cdf82e928 received, cancellation timeout 5 minutes.
+[2021-02-01 20:29:15Z INFO JobDispatcher] Send job cancellation message to worker for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:29:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:29:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:29:29Z INFO ProcessInvokerWrapper] Finished process 68319 with exit code 103, and elapsed time 00:00:16.4450254.
+[2021-02-01 20:29:29Z INFO JobDispatcher] finish job request for job e29387e2-900f-5996-ba66-117cdf82e928 with result: Canceled
+[2021-02-01 20:29:29Z INFO Terminal] WRITE LINE: 2021-02-01 20:29:29Z: Job tests (ubuntu-latest) completed with result: Canceled
+[2021-02-01 20:29:29Z INFO JobDispatcher] Stop renew job request for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:29:29Z INFO JobDispatcher] job renew has been canceled, stop renew job request 4.
+[2021-02-01 20:29:29Z INFO JobNotification] Entering JobCompleted Notification
+[2021-02-01 20:29:29Z INFO JobNotification] Entering EndMonitor
+[2021-02-01 20:38:55Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:38:55Z INFO MessageListener] Message '7' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:38:55Z INFO JobDispatcher] Job request 5 for plan bf9549c5-0e2e-4fd3-be7b-c47d76e3eb3f job 1922b6d9-bc7f-58d9-700c-a282774f1599 received.
+[2021-02-01 20:38:55Z INFO JobDispatcher] Pull OrchestrationId bf9549c5-0e2e-4fd3-be7b-c47d76e3eb3f.tests.macos-latest from JWT claims
+[2021-02-01 20:38:55Z INFO JobDispatcher] Job request e29387e2-900f-5996-ba66-117cdf82e928 processed succeed.
+[2021-02-01 20:38:55Z INFO Terminal] WRITE LINE: 2021-02-01 20:38:55Z: Running job: tests (macOS-latest)
+[2021-02-01 20:38:55Z INFO JobDispatcher] Start renew job request 5 for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:38:57Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2/1/2021 8:48:57 PM
+[2021-02-01 20:38:57Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   File name: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 100 105'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-02-01 20:38:57Z INFO ProcessInvokerWrapper] Process started with process id 73617, waiting for process exit.
+[2021-02-01 20:38:57Z INFO JobDispatcher] Send job request message to worker for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:38:57Z INFO JobNotification] Entering JobStarted Notification
+[2021-02-01 20:38:57Z INFO JobNotification] Entering StartMonitor
+[2021-02-01 20:39:21Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:21Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:21Z INFO ProcessInvokerWrapper] Finished process 73617 with exit code 102, and elapsed time 00:00:24.2794759.
+[2021-02-01 20:39:21Z INFO JobDispatcher] Worker finished for job 1922b6d9-bc7f-58d9-700c-a282774f1599. Code: 102
+[2021-02-01 20:39:21Z INFO JobDispatcher] finish job request for job 1922b6d9-bc7f-58d9-700c-a282774f1599 with result: Failed
+[2021-02-01 20:39:21Z INFO Terminal] WRITE LINE: 2021-02-01 20:39:21Z: Job tests (macOS-latest) completed with result: Failed
+[2021-02-01 20:39:21Z INFO JobDispatcher] Stop renew job request for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:39:21Z INFO JobDispatcher] job renew has been canceled, stop renew job request 5.
+[2021-02-01 20:39:21Z INFO JobNotification] Entering JobCompleted Notification
+[2021-02-01 20:39:21Z INFO JobNotification] Entering EndMonitor
+[2021-02-01 20:39:23Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:39:23Z INFO MessageListener] Message '8' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:39:23Z INFO JobDispatcher] Job request 6 for plan bf9549c5-0e2e-4fd3-be7b-c47d76e3eb3f job e29387e2-900f-5996-ba66-117cdf82e928 received.
+[2021-02-01 20:39:23Z INFO JobDispatcher] Pull OrchestrationId bf9549c5-0e2e-4fd3-be7b-c47d76e3eb3f.tests.ubuntu-latest from JWT claims
+[2021-02-01 20:39:23Z INFO JobDispatcher] Job request 1922b6d9-bc7f-58d9-700c-a282774f1599 processed succeed.
+[2021-02-01 20:39:23Z INFO Terminal] WRITE LINE: 2021-02-01 20:39:23Z: Running job: tests (ubuntu-latest)
+[2021-02-01 20:39:23Z INFO JobDispatcher] Start renew job request 6 for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:39:24Z INFO JobDispatcher] Successfully renew job request 6, job is valid till 2/1/2021 8:49:23 PM
+[2021-02-01 20:39:24Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   File name: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 100 105'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-02-01 20:39:24Z INFO ProcessInvokerWrapper] Process started with process id 73793, waiting for process exit.
+[2021-02-01 20:39:24Z INFO JobDispatcher] Send job request message to worker for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:39:24Z INFO JobNotification] Entering JobStarted Notification
+[2021-02-01 20:39:24Z INFO JobNotification] Entering StartMonitor
+[2021-02-01 20:39:26Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:39:26Z INFO MessageListener] Message '9' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:39:26Z INFO JobDispatcher] Job cancellation request e29387e2-900f-5996-ba66-117cdf82e928 received, cancellation timeout 5 minutes.
+[2021-02-01 20:39:26Z INFO JobDispatcher] Send job cancellation message to worker for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:39:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:32Z INFO ProcessInvokerWrapper] Finished process 73793 with exit code 103, and elapsed time 00:00:08.5175002.
+[2021-02-01 20:39:32Z INFO JobDispatcher] finish job request for job e29387e2-900f-5996-ba66-117cdf82e928 with result: Canceled
+[2021-02-01 20:39:32Z INFO Terminal] WRITE LINE: 2021-02-01 20:39:32Z: Job tests (ubuntu-latest) completed with result: Canceled
+[2021-02-01 20:39:32Z INFO JobDispatcher] Stop renew job request for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:39:32Z INFO JobDispatcher] job renew has been canceled, stop renew job request 6.
+[2021-02-01 20:39:32Z INFO JobNotification] Entering JobCompleted Notification
+[2021-02-01 20:39:32Z INFO JobNotification] Entering EndMonitor
+[2021-02-01 20:52:59Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:52:59Z INFO MessageListener] Message '10' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:52:59Z INFO JobDispatcher] Job request 7 for plan 3c7ce6e1-5347-431e-b217-f774f71cdeec job 1922b6d9-bc7f-58d9-700c-a282774f1599 received.
+[2021-02-01 20:52:59Z INFO JobDispatcher] Pull OrchestrationId 3c7ce6e1-5347-431e-b217-f774f71cdeec.tests.macos-latest from JWT claims
+[2021-02-01 20:52:59Z INFO JobDispatcher] Job request e29387e2-900f-5996-ba66-117cdf82e928 processed succeed.
+[2021-02-01 20:52:59Z INFO Terminal] WRITE LINE: 2021-02-01 20:52:59Z: Running job: tests (macOS-latest)
+[2021-02-01 20:52:59Z INFO JobDispatcher] Start renew job request 7 for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:53:01Z INFO JobDispatcher] Successfully renew job request 7, job is valid till 2/1/2021 9:03:01 PM
+[2021-02-01 20:53:01Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   File name: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 100 105'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-02-01 20:53:01Z INFO ProcessInvokerWrapper] Process started with process id 84680, waiting for process exit.
+[2021-02-01 20:53:01Z INFO JobDispatcher] Send job request message to worker for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:53:01Z INFO JobNotification] Entering JobStarted Notification
+[2021-02-01 20:53:01Z INFO JobNotification] Entering StartMonitor
+[2021-02-01 20:53:30Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:53:30Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:53:30Z INFO ProcessInvokerWrapper] Finished process 84680 with exit code 102, and elapsed time 00:00:29.4340515.
+[2021-02-01 20:53:30Z INFO JobDispatcher] Worker finished for job 1922b6d9-bc7f-58d9-700c-a282774f1599. Code: 102
+[2021-02-01 20:53:30Z INFO JobDispatcher] finish job request for job 1922b6d9-bc7f-58d9-700c-a282774f1599 with result: Failed
+[2021-02-01 20:53:30Z INFO Terminal] WRITE LINE: 2021-02-01 20:53:30Z: Job tests (macOS-latest) completed with result: Failed
+[2021-02-01 20:53:30Z INFO JobDispatcher] Stop renew job request for job 1922b6d9-bc7f-58d9-700c-a282774f1599.
+[2021-02-01 20:53:30Z INFO JobDispatcher] job renew has been canceled, stop renew job request 7.
+[2021-02-01 20:53:30Z INFO JobNotification] Entering JobCompleted Notification
+[2021-02-01 20:53:30Z INFO JobNotification] Entering EndMonitor
+[2021-02-01 20:53:33Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:53:33Z INFO MessageListener] Message '11' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:53:33Z INFO JobDispatcher] Job request 8 for plan 3c7ce6e1-5347-431e-b217-f774f71cdeec job e29387e2-900f-5996-ba66-117cdf82e928 received.
+[2021-02-01 20:53:33Z INFO JobDispatcher] Pull OrchestrationId 3c7ce6e1-5347-431e-b217-f774f71cdeec.tests.ubuntu-latest from JWT claims
+[2021-02-01 20:53:33Z INFO JobDispatcher] Job request 1922b6d9-bc7f-58d9-700c-a282774f1599 processed succeed.
+[2021-02-01 20:53:33Z INFO Terminal] WRITE LINE: 2021-02-01 20:53:33Z: Running job: tests (ubuntu-latest)
+[2021-02-01 20:53:33Z INFO JobDispatcher] Start renew job request 8 for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:53:34Z INFO JobDispatcher] Successfully renew job request 8, job is valid till 2/1/2021 9:03:33 PM
+[2021-02-01 20:53:34Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   File name: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 100 105'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-02-01 20:53:34Z INFO ProcessInvokerWrapper] Process started with process id 84809, waiting for process exit.
+[2021-02-01 20:53:34Z INFO JobDispatcher] Send job request message to worker for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:53:34Z INFO JobNotification] Entering JobStarted Notification
+[2021-02-01 20:53:34Z INFO JobNotification] Entering StartMonitor
+[2021-02-01 20:53:36Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:53:36Z INFO MessageListener] Message '12' received from session '509d52ee-8aa3-4c79-946a-cc0f4d0d0dd6'.
+[2021-02-01 20:53:36Z INFO JobDispatcher] Job cancellation request e29387e2-900f-5996-ba66-117cdf82e928 received, cancellation timeout 5 minutes.
+[2021-02-01 20:53:36Z INFO JobDispatcher] Send job cancellation message to worker for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:53:42Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:53:42Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:53:42Z INFO ProcessInvokerWrapper] Finished process 84809 with exit code 103, and elapsed time 00:00:08.8452714.
+[2021-02-01 20:53:42Z INFO JobDispatcher] finish job request for job e29387e2-900f-5996-ba66-117cdf82e928 with result: Canceled
+[2021-02-01 20:53:42Z INFO Terminal] WRITE LINE: 2021-02-01 20:53:42Z: Job tests (ubuntu-latest) completed with result: Canceled
+[2021-02-01 20:53:42Z INFO JobDispatcher] Stop renew job request for job e29387e2-900f-5996-ba66-117cdf82e928.
+[2021-02-01 20:53:42Z INFO JobDispatcher] job renew has been canceled, stop renew job request 8.
+[2021-02-01 20:53:42Z INFO JobNotification] Entering JobCompleted Notification
+[2021-02-01 20:53:42Z INFO JobNotification] Entering EndMonitor

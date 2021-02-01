@@ -1,0 +1,24 @@
+name: Download artifact (upload)
+
+on:
+  pull_request:
+    paths:
+      - '**download-artifact**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'node_modules/**'
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump
+        run: |
+          mkdir artifact
+          echo $GITHUB_SHA > artifact/sha
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: artifact

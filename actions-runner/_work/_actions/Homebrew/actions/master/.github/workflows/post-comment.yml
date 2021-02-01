@@ -1,0 +1,24 @@
+name: Post comment
+
+on:
+  pull_request:
+    paths:
+      - '**post-comment**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'node_modules/**'
+
+jobs:
+  post-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Test
+        uses: ./post-comment/
+        with:
+          issue: ${{github.event.pull_request.number}}
+          body: body
+          bot_body: bot body
+          bot: BrewTestBot

@@ -1,0 +1,296 @@
+2021-02-02 09:13:32 +1300
+
+./configure
+--prefix=/usr/local/Cellar/subversion/1.14.0_6
+--disable-debug
+--enable-optimize
+--disable-mod-activation
+--disable-plaintext-password-storage
+--with-apr-util=/usr/local/opt/apr-util
+--with-apr=/usr/local/opt/apr
+--with-apxs=no
+--with-ruby-sitedir=/usr/local/Cellar/subversion/1.14.0_6/lib/ruby
+--with-py3c=/private/tmp/subversion-20210202-13421-1gu5eva/subversion-1.14.0/py3c
+--with-serf=/usr/local/Cellar/subversion/1.14.0_6/libexec/serf
+--with-sqlite=/usr/local/opt/sqlite
+--with-swig=/usr/local/opt/swig
+--with-zlib=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr
+--without-apache-libexecdir
+--without-berkeley-db
+--without-gpg-agent
+--without-jikes
+PYTHON=/usr/local/opt/python@3.9/bin/python3
+RUBY=/usr/bin/ruby
+--with-jdk=/usr/local/opt/openjdk
+--enable-javahl
+
+configure: Configuring Subversion 1.14.0
+configure: creating config.nice
+checking for gcc... /usr/bin/clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/bin/clang accepts -g... yes
+checking for /usr/bin/clang option to accept ISO C89... none needed
+checking if /usr/bin/clang accepts -std=c90... yes
+checking if /usr/bin/clang accepts -w... yes
+checking if /usr/bin/clang accepts -Werror=unknown-warning-option... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether /usr/bin/clang++ accepts -g... yes
+checking if /usr/bin/clang++ accepts -std=c++11... yes
+checking if /usr/bin/clang++ accepts -w... yes
+checking if /usr/bin/clang++ accepts -Werror=unknown-warning-option... yes
+checking how to run the C preprocessor... /usr/bin/clang -E
+checking for a sed that does not truncate output... /usr/bin/sed
+checking build system type... x86_64-apple-darwin19.6.0
+checking host system type... x86_64-apple-darwin19.6.0
+checking target system type... x86_64-apple-darwin19.6.0
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+configure: Apache Portable Runtime (APR) library configuration
+checking for APR... yes
+checking APR version... 1.7.0
+configure: Apache Portable Runtime Utility (APRUTIL) library configuration
+checking for APR-util... yes
+checking APRUTIL version... 1.6.1
+checking for pkg-config... /usr/local/bin/pkg-config
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+configure: serf library configuration via pkg-config
+checking for serf-2 library... no
+checking for serf-1 library... yes
+checking serf library version... 1.3.9
+checking serf version is suitable... yes
+checking was serf enabled... yes
+configure: looking for apr_memcache as part of apr-util
+checking apr_memcache.h usability... yes
+checking apr_memcache.h presence... yes
+checking for apr_memcache.h... yes
+checking for apr_memcache_create in -laprutil-1... yes
+checking for Apache module support via DSO through APXS... no
+configure: checking sqlite library
+checking sqlite3.h usability... yes
+checking sqlite3.h presence... yes
+checking for sqlite3.h... yes
+checking sqlite library version (via header)... okay
+checking for sqlite3_close in -lsqlite3... yes
+checking whether the compiler provides atomic builtins... yes
+configure: configuring libtool now
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by /usr/bin/clang... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+checking if the linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 196608
+checking how to convert x86_64-apple-darwin19.6.0 file names to x86_64-apple-darwin19.6.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin19.6.0 file names to toolchain format... func_convert_file_noop
+checking for /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking command to parse /usr/bin/nm -B output from /usr/bin/clang object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/bin/clang supports -fno-rtti -fno-exceptions... yes
+checking for /usr/bin/clang option to produce PIC... -fno-common -DPIC
+checking if /usr/bin/clang PIC flag -fno-common -DPIC works... yes
+checking if /usr/bin/clang static flag -static works... no
+checking if /usr/bin/clang supports -c -o file.o... yes
+checking if /usr/bin/clang supports -c -o file.o... (cached) yes
+checking whether the /usr/bin/clang linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin19.6.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... /usr/bin/clang++ -E
+checking for ld used by /usr/bin/clang++... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+checking if the linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) is GNU ld... no
+checking whether the /usr/bin/clang++ linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking for /usr/bin/clang++ option to produce PIC... -fno-common -DPIC
+checking if /usr/bin/clang++ PIC flag -fno-common -DPIC works... yes
+checking if /usr/bin/clang++ static flag -static works... no
+checking if /usr/bin/clang++ supports -c -o file.o... yes
+checking if /usr/bin/clang++ supports -c -o file.o... (cached) yes
+checking whether the /usr/bin/clang++ linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin19.6.0 dyld
+checking how to hardcode library paths into programs... immediate
+configure: building both shared and static libraries
+checking whether libtool needs -no-undefined... no
+checking for trang... none
+checking for doxygen... none
+checking for Expat... yes
+checking for socket in -lsocket... no
+checking whether to look for SASL... yes
+configure: Looking in default locations
+checking sasl/sasl.h usability... yes
+checking sasl/sasl.h presence... yes
+checking for sasl/sasl.h... yes
+checking sasl/saslutil.h usability... yes
+checking sasl/saslutil.h presence... yes
+checking for sasl/saslutil.h... yes
+checking for prop_get in -lsasl2... yes
+checking for availability of Cyrus SASL v2... yes
+checking for Mach-O dynamic module iteration functions... yes
+checking for Mac OS property list utilities... yes
+checking for Mac OS KeyChain Services... yes
+checking whether APR has support for DSOs... yes
+checking for D-Bus .pc file... yes
+checking D-Bus version... 1.12.20
+checking for D-Bus... yes
+checking whether to support GPG-Agent... no
+checking whether to look for old GNOME Keyring... no
+checking whether to look for GNOME Keyring... yes
+checking for msgfmt... /usr/local/bin/msgfmt
+checking for msgmerge... /usr/local/bin/msgmerge
+checking for xgettext... /usr/local/bin/xgettext
+checking for library containing bindtextdomain... -lintl
+checking for bind_textdomain_codeset... yes
+checking if we are using GNU gettext... yes
+checking magic.h usability... yes
+checking magic.h presence... yes
+checking for magic.h... yes
+checking for magic_open in -lmagic... yes
+checking whether to look for KWallet... no
+configure: Disabling plaintext password/passphrase storage
+checking for ANSI C header files... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking for working memcmp... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for symlink... yes
+checking for readlink... yes
+checking sys/utsname.h usability... yes
+checking sys/utsname.h presence... yes
+checking for sys/utsname.h... yes
+checking for uname... yes
+checking elf.h usability... no
+checking elf.h presence... no
+checking for elf.h... no
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking for tcgetattr... yes
+checking for tcsetattr... yes
+configure: Disabling debugging
+configure: C compiler flags: -Werror=unknown-warning-option -Os -w -pipe -march=nehalem -mmacosx-version-min=10.15 -isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -O2  -DNDEBUG
+configure:   language-level: -std=c90 
+configure:     user-defined: -Os -w -pipe -march=nehalem -mmacosx-version-min=10.15 -isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk
+configure:  maintainer-mode: 
+configure: C++ compiler flags: -Werror=unknown-warning-option -Os -w -pipe -march=nehalem -mmacosx-version-min=10.15 -isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk  -DNDEBUG
+configure:     language-level: -std=c++11 
+configure:       user-defined: -Os -w -pipe -march=nehalem -mmacosx-version-min=10.15 -isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk
+configure:    maintainer-mode: 
+configure: zlib library configuration via prefix
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for inflate in -lz... yes
+checking for lz4 library via pkg-config... yes
+configure: utf8proc configuration without pkg-config
+checking for utf8proc_version in -lutf8proc... yes
+configure: Disabling apache module activation
+checking for /usr/local/opt/python@3.9/bin/python3... /usr/local/opt/python@3.9/bin/python3
+checking for JDK... /usr/local/opt/openjdk/include/jni.h
+checking for perl... /usr/local/bin/perl
+checking for /usr/bin/ruby... /usr/bin/ruby
+checking rb_hash_foreach... yes
+checking for rdoc... /Users/rew/.rvm/rubies/ruby-2.6.5/bin/rdoc
+checking for Ruby major version... 2
+checking for Ruby minor version... 6
+checking for Ruby teeny version... 3
+checking swig version... 4.0.2
+configure: Configuring python swig binding
+checking for Python includes... -I/usr/local/Cellar/python@3.9/3.9.1_4/Frameworks/Python.framework/Versions/3.9/include/python3.9
+checking Python.h usability... yes
+checking Python.h presence... yes
+checking for Python.h... yes
+configure: py3c library configuration via prefix /private/tmp/subversion-20210202-13421-1gu5eva/subversion-1.14.0/py3c
+checking py3c.h usability... yes
+checking py3c.h presence... yes
+checking for py3c.h... yes
+checking for compiling Python extensions... clang 
+checking for linking Python extensions... clang -bundle -undefined dynamic_lookup -L/usr/local/lib -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -bundle_loader /usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin/python
+checking for linking Python libraries... -bundle -undefined dynamic_lookup -L/usr/local/lib -bundle_loader /usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin/python
+checking for Python >= 3... yes
+checking perl version... 5032000
+configure: Configuring Ruby SWIG binding
+checking for Ruby include path... -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0 -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/universal-darwin19
+checking how to compile Ruby extensions... xcrun clang -Werror=unknown-warning-option -Os -w -pipe -march=nehalem -mmacosx-version-min=10.15 -isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -O2  -DNDEBUG
+checking how to link Ruby extensions... xcrun clang clang -dynamic -bundle -shrext .bundle
+checking how to link Ruby libraries... -lruby.2.6 
+checking for rb_errinfo... yes
+checking where to install Ruby scripts... /usr/local/Cellar/subversion/1.14.0_6/lib/ruby/2.6.0
+checking where to install Ruby extensions... /usr/local/Cellar/subversion/1.14.0_6/lib/ruby/2.6.0/universal-darwin19
+checking how to use output level for Ruby bindings tests... normal
+checking for ctypesgen.py... none
+checking for boostlib >= 1.58 (105800)... yes
+checking for additional flags to link C++ libraries... -lstdc++
+checking stdbool.h usability... yes
+checking stdbool.h presence... yes
+checking for stdbool.h... yes
+checking for stdint.h... (cached) yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating subversion/libsvn_auth_gnome_keyring/libsvn_auth_gnome_keyring.pc
+config.status: creating subversion/libsvn_auth_kwallet/libsvn_auth_kwallet.pc
+config.status: creating subversion/libsvn_client/libsvn_client.pc
+config.status: creating subversion/libsvn_delta/libsvn_delta.pc
+config.status: creating subversion/libsvn_diff/libsvn_diff.pc
+config.status: creating subversion/libsvn_fs/libsvn_fs.pc
+config.status: creating subversion/libsvn_fs_base/libsvn_fs_base.pc
+config.status: creating subversion/libsvn_fs_fs/libsvn_fs_fs.pc
+config.status: creating subversion/libsvn_fs_util/libsvn_fs_util.pc
+config.status: creating subversion/libsvn_fs_x/libsvn_fs_x.pc
+config.status: creating subversion/libsvn_ra/libsvn_ra.pc
+config.status: creating subversion/libsvn_ra_local/libsvn_ra_local.pc
+config.status: creating subversion/libsvn_ra_serf/libsvn_ra_serf.pc
+config.status: creating subversion/libsvn_ra_svn/libsvn_ra_svn.pc
+config.status: creating subversion/libsvn_repos/libsvn_repos.pc
+config.status: creating subversion/libsvn_subr/libsvn_subr.pc
+config.status: creating subversion/libsvn_wc/libsvn_wc.pc
+config.status: creating tools/backup/hot-backup.py
+config.status: creating tools/hook-scripts/commit-access-control.pl
+config.status: creating subversion/bindings/swig/perl/native/Makefile.PL
+config.status: creating subversion/svn_private_config.h.tmp
+config.status: executing libtool commands
+config.status: executing svn_private_config.h.tmp commands

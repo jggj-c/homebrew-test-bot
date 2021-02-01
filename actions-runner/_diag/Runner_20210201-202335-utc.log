@@ -1,0 +1,207 @@
+[2021-02-01 20:23:35Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2021-02-01 20:23:35Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:35Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:35Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:23:35Z INFO Listener] Runner is built for OSX (X64) - osx-x64.
+[2021-02-01 20:23:35Z INFO Listener] RuntimeInformation: Darwin 19.6.0 Darwin Kernel Version 19.6.0: Mon Aug 31 22:12:52 PDT 2020; root:xnu-6153.141.2~1/RELEASE_X86_64.
+[2021-02-01 20:23:36Z INFO Listener] Version: 2.276.1
+[2021-02-01 20:23:36Z INFO Listener] Commit: 5effa808be96eae7f2e08d713426b8d056bddff1
+[2021-02-01 20:23:36Z INFO Listener] Culture: en-US
+[2021-02-01 20:23:36Z INFO Listener] UI Culture: en-US
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:36Z INFO Listener] Validating directory permissions for: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:36Z INFO CommandLineParser] Parse
+[2021-02-01 20:23:36Z INFO CommandLineParser] Parsing 5 args
+[2021-02-01 20:23:36Z INFO CommandLineParser] parsing argument
+[2021-02-01 20:23:36Z INFO CommandLineParser] HasArgs: False
+[2021-02-01 20:23:36Z INFO CommandLineParser] Adding Command: configure
+[2021-02-01 20:23:36Z INFO CommandLineParser] parsing argument
+[2021-02-01 20:23:36Z INFO CommandLineParser] HasArgs: True
+[2021-02-01 20:23:36Z INFO CommandLineParser] arg: url
+[2021-02-01 20:23:36Z INFO CommandLineParser] parsing argument
+[2021-02-01 20:23:36Z INFO CommandLineParser] HasArgs: True
+[2021-02-01 20:23:36Z INFO CommandLineParser] Adding option 'url': 'https://github.com/jggj-c/homebrew-test-bot'
+[2021-02-01 20:23:36Z INFO CommandLineParser] parsing argument
+[2021-02-01 20:23:36Z INFO CommandLineParser] HasArgs: True
+[2021-02-01 20:23:36Z INFO CommandLineParser] arg: token
+[2021-02-01 20:23:36Z INFO CommandLineParser] parsing argument
+[2021-02-01 20:23:36Z INFO CommandLineParser] HasArgs: True
+[2021-02-01 20:23:36Z INFO CommandLineParser] Adding option 'token': '***'
+[2021-02-01 20:23:36Z INFO Listener] Arguments parsed
+[2021-02-01 20:23:36Z INFO Runner] ExecuteCommand
+[2021-02-01 20:23:36Z INFO ConfigurationStore] currentAssemblyLocation: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Listener.dll
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:36Z INFO ConfigurationStore] binPath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:36Z INFO ConfigurationStore] RootFolder: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:36Z INFO HostContext] Well known config file 'Runner': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.runner'
+[2021-02-01 20:23:36Z INFO ConfigurationStore] ConfigFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.runner
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:36Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:23:36Z INFO ConfigurationStore] CredFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:36Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_migrated'
+[2021-02-01 20:23:36Z INFO ConfigurationStore] MigratedCredFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_migrated
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:36Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:36Z INFO HostContext] Well known config file 'Service': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.service'
+[2021-02-01 20:23:36Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.service
+[2021-02-01 20:23:36Z INFO CommandSettings] Flag 'help': 'False'
+[2021-02-01 20:23:36Z INFO CommandSettings] Flag 'version': 'False'
+[2021-02-01 20:23:36Z INFO CommandSettings] Flag 'commit': 'False'
+[2021-02-01 20:23:36Z INFO CommandSettings] Flag 'check': 'False'
+[2021-02-01 20:23:36Z INFO CommandSettings] Command 'configure': 'True'
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: 
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: --------------------------------------------------------------------------------
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: |        ____ _ _   _   _       _          _        _   _                      |
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: |       / ___(_) |_| | | |_   _| |__      / \   ___| |_(_) ___  _ __  ___      |
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: |      | |  _| | __| |_| | | | | '_ \    / _ \ / __| __| |/ _ \| '_ \/ __|     |
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: |      | |_| | | |_|  _  | |_| | |_) |  / ___ \ (__| |_| | (_) | | | \__ \     |
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: |       \____|_|\__|_| |_|\__,_|_.__/  /_/   \_\___|\__|_|\___/|_| |_|___/     |
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: |                                                                              |
+[2021-02-01 20:23:36Z INFO Terminal] WRITE: |                       
+[2021-02-01 20:23:36Z INFO Terminal] WRITE: Self-hosted runner registration
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE:                         |
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: |                                                                              |
+[2021-02-01 20:23:36Z INFO Terminal] WRITE LINE: --------------------------------------------------------------------------------
+[2021-02-01 20:23:36Z INFO ConfigurationManager] ConfigureAsync
+[2021-02-01 20:23:36Z INFO ConfigurationStore] IsConfigured()
+[2021-02-01 20:23:36Z INFO ConfigurationStore] IsConfigured: False
+[2021-02-01 20:23:36Z INFO ConfigurationManager] Is configured: False
+[2021-02-01 20:23:36Z INFO CommandSettings] Arg 'url': 'https://github.com/jggj-c/homebrew-test-bot'
+[2021-02-01 20:23:36Z INFO CommandSettings] Remove url from Arg dictionary.
+[2021-02-01 20:23:36Z INFO CommandSettings] Arg 'token': '***'
+[2021-02-01 20:23:36Z INFO CommandSettings] Remove token from Arg dictionary.
+[2021-02-01 20:23:39Z INFO ConfigurationManager] Http response code: OK from 'POST https://api.github.com/actions/runner-registration'
+[2021-02-01 20:23:41Z INFO ConfigurationManager] cred retrieved via GitHub auth
+[2021-02-01 20:23:41Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2021-02-01 20:23:42Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:23:43Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-02-01 20:23:43Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:23:43Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-02-01 20:23:43Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:23:45Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:23:45Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:23:45Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:23:46Z INFO Terminal] WRITE LINE: 
+[2021-02-01 20:23:46Z INFO ConfigurationManager] Test Connection complete.
+[2021-02-01 20:23:46Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:46Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:46Z INFO HostContext] Well known config file 'RSACredentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams'
+[2021-02-01 20:23:46Z INFO RSAFileKeyManager] Creating new RSA key using 2048-bit key length
+[2021-02-01 20:23:56Z INFO RSAFileKeyManager] Successfully saved RSA key parameters to file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:23:56Z INFO RSAFileKeyManager] Which: 'chmod'
+[2021-02-01 20:23:58Z INFO RSAFileKeyManager] Location: '/bin/chmod'
+[2021-02-01 20:23:58Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:23:58Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   File name: '/bin/chmod'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   Arguments: '600 /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper] Process started with process id 47501, waiting for process exit.
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:23:58Z INFO ProcessInvokerWrapper] Finished process 47501 with exit code 0, and elapsed time 00:00:00.1265308.
+[2021-02-01 20:23:58Z INFO RSAFileKeyManager] Successfully set permissions for RSA key parameters file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:23:59Z INFO ConfigurationManager] Found a self-hosted runner group with id {1} and name {2} 1, Default
+[2021-02-01 20:23:59Z INFO CommandSettings] Arg 'name': ''
+[2021-02-01 20:23:59Z INFO CommandSettings] Flag 'unattended': 'False'
+[2021-02-01 20:23:59Z INFO PromptManager] ReadValue
+[2021-02-01 20:23:59Z INFO Terminal] WRITE: Enter the name of runner: 
+[2021-02-01 20:23:59Z INFO Terminal] WRITE: [press Enter for rews-MacBook-Pro] 
+[2021-02-01 20:23:59Z INFO Terminal] READ LINE
+[2021-02-01 20:24:29Z INFO Terminal] Read value: ''
+[2021-02-01 20:24:29Z INFO PromptManager] Falling back to the default: 'rews-MacBook-Pro'
+[2021-02-01 20:24:29Z INFO Terminal] WRITE LINE: 
+[2021-02-01 20:24:29Z INFO CommandSettings] Arg 'labels': ''
+[2021-02-01 20:24:29Z INFO CommandSettings] Flag 'unattended': 'False'
+[2021-02-01 20:24:29Z INFO PromptManager] ReadValue
+[2021-02-01 20:24:29Z INFO Terminal] WRITE: This runner will have the following labels: 'self-hosted', 'macOS', 'X64' 
+Enter any additional labels (ex. label-1,label-2): 
+[2021-02-01 20:24:29Z INFO Terminal] WRITE: [press Enter to skip] 
+[2021-02-01 20:24:29Z INFO Terminal] READ LINE
+[2021-02-01 20:24:45Z INFO Terminal] Read value: 'test-bot'
+[2021-02-01 20:24:45Z INFO Terminal] WRITE LINE: 
+[2021-02-01 20:24:46Z INFO ConfigurationStore] Saving OAuth credential @ /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials
+[2021-02-01 20:24:46Z INFO ConfigurationStore] Credentials Saved.
+[2021-02-01 20:24:46Z INFO ConfigurationStore] HasCredentials()
+[2021-02-01 20:24:46Z INFO ConfigurationStore] stored True
+[2021-02-01 20:24:46Z INFO CredentialManager] GetCredentialProvider
+[2021-02-01 20:24:46Z INFO CredentialManager] Creating type OAuth
+[2021-02-01 20:24:46Z INFO CredentialManager] Creating credential type: OAuth
+[2021-02-01 20:24:46Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:24:46Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2021-02-01 20:24:46Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:24:46Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-02-01 20:24:46Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:24:46Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-02-01 20:24:47Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:24:48Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:24:48Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:24:48Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:24:48Z WARN GitHubActionsService] Authentication failed with status code 401.
+WWW-Authenticate: Bearer
+Strict-Transport-Security: max-age=2592000
+X-TFS-ProcessId: df954d54-773a-41e3-9515-9f8c6cec86cb
+ActivityId: ab7e771f-1b37-406c-a367-b9993bee0008
+X-TFS-Session: e80c73d4-6a1e-4850-b801-bd0c78ab9c0a
+X-VSS-E2EID: 69823acf-5921-4cc4-8467-6882d86930a1
+X-VSS-SenderDeploymentId: a07ab14e-025a-39c3-8d53-788cd7ce207f
+X-TFS-ServiceError: The+user+%27System%3aPublicAccess%3baaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa%27+is+not+authorized+to+access+this+resource.
+X-VSS-S2STargetService: 0000005A-0000-8888-8000-000000000000/visualstudio.com
+X-MSEdge-Ref: Ref A: 0658515396B644B8913261B5509F1760 Ref B: DXB30EDGE0116 Ref C: 2021-02-01T20:24:48Z
+Date: Mon, 01 Feb 2021 20:24:48 GMT
+
+[2021-02-01 20:24:48Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:24:48Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_rsaparams
+[2021-02-01 20:24:50Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2021-02-01 20:24:50Z INFO CommandSettings] Arg 'work': ''
+[2021-02-01 20:24:50Z INFO CommandSettings] Flag 'unattended': 'False'
+[2021-02-01 20:24:50Z INFO PromptManager] ReadValue
+[2021-02-01 20:24:50Z INFO Terminal] WRITE: Enter name of work folder: 
+[2021-02-01 20:24:50Z INFO Terminal] WRITE: [press Enter for _work] 
+[2021-02-01 20:24:50Z INFO Terminal] READ LINE
+[2021-02-01 20:25:01Z INFO Terminal] Read value: ''
+[2021-02-01 20:25:01Z INFO PromptManager] Falling back to the default: '_work'
+[2021-02-01 20:25:01Z INFO ConfigurationStore] Saving runner settings.
+[2021-02-01 20:25:01Z INFO ConfigurationStore] Settings Saved.
+[2021-02-01 20:25:01Z INFO Terminal] WRITE LINE: 
+[2021-02-01 20:25:01Z INFO Terminal] WRITE LINE: 
+[2021-02-01 20:25:01Z INFO OsxServiceControlManager] Service name 'actions.runner.jggj-c-homebrew-test-bot.rews-MacBook-Pro' display name 'GitHub Actions Runner (jggj-c-homebrew-test-bot.rews-MacBook-Pro)' will be used for service configuration.
+[2021-02-01 20:25:01Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:01Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:01Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:01Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:25:01Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:01Z INFO UnixUtil] Which: 'chmod'
+[2021-02-01 20:25:02Z INFO UnixUtil] Location: '/bin/chmod'
+[2021-02-01 20:25:02Z INFO UnixUtil] Running /bin/chmod 755 "/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/svc.sh"
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   File name: '/bin/chmod'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   Arguments: '755 "/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/svc.sh"'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   Require exit code zero: 'True'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper] Process started with process id 58102, waiting for process exit.
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:25:02Z INFO ProcessInvokerWrapper] Finished process 58102 with exit code 0, and elapsed time 00:00:00.1004188.
+[2021-02-01 20:25:02Z INFO Listener] Runner execution has finished with return code 0

@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "jggj-c/homebrew-test-bot",
+  "pipelineDirectory": "homebrew-test-bot",
+  "workspaceDirectory": "homebrew-test-bot/homebrew-test-bot",
+  "repositories": {
+    "jggj-c/homebrew-test-bot": {
+      "repositoryPath": "homebrew-test-bot/homebrew-test-bot",
+      "lastRunOn": "02/02/2021 09:27:08 +13:00"
+    }
+  },
+  "lastRunOn": "02/02/2021 09:53:39 +13:00"
+}

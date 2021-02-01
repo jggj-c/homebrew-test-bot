@@ -1,0 +1,57 @@
+2021-02-02 10:02:10 +1300
+
+/usr/local/Cellar/appstream-glib/0.7.18/bin/appstream-util
+--help
+
+Usage:
+  appstream-util [OPTION?]
+
+  add-language                      Add a language to a source file
+  add-provide                       Add a provide to a source file
+  agreement-export                  Exports the agreement to text
+  appdata-from-desktop              Creates an example AppData file from a .desktop file
+  appdata-to-news                   Convert an AppData file to NEWS format
+  check-component                   check an installed application
+  check-root                        Check installed application data
+  compare                           Compare the contents of two AppStream files
+  convert                           Converts AppStream metadata from one version to another
+  dump                              Dumps the applications in the AppStream metadata
+  generate-guid                     Generate a GUID from an input string
+  incorporate                       Incorporate extra metadata from an external file
+  install                           Installs AppStream metadata
+  install-origin                    Installs AppStream metadata with new origin
+  markup-import                     Import a file to AppStream markup
+  matrix-html                       Create an HTML matrix page
+  merge-appstream                   Merge several files to an AppStream file
+  mirror-screenshots                Mirror upstream screenshots
+  modify                            Modify an AppData file
+  news-to-appdata                   Convert an NEWS file to AppData format
+  non-package-yaml                  List applications not backed by packages
+  query-installed                   Show all installed AppStream applications
+  regex                             Test a regular expression
+  replace-screenshots               Replace screenshots in source file
+  search                            Search for AppStream applications
+  search-category                   Search for AppStream applications by category name
+  search-pkgname                    Search for AppStream applications by package name
+  show-search-tokens                Display application search tokens
+  split-appstream                   Split an AppStream file to AppData and Metainfo files
+  status-csv                        Create an CSV status document
+  status-html                       Create an HTML status page
+  uninstall                         Uninstalls AppStream metadata
+  upgrade                           Upgrade AppData metadata to the latest version
+  validate                          Validate an AppData or AppStream file
+  validate-relax                    Validate an AppData or AppStream file (relaxed)
+  validate-strict                   Validate an AppData or AppStream file (strict)
+  validate-version                  Validate that AppData file includes the specified release
+  vercmp                            Compare version numbers
+  watch                             Watch AppStream locations for changes
+
+Help Options:
+  -h, --help        Show help options
+
+Application Options:
+  --nonet           Do not use network access
+  -v, --verbose     Show extra debugging information
+  --version         Show version
+  --profile         Enable profiling
+

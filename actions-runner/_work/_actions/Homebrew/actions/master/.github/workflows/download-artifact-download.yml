@@ -1,0 +1,29 @@
+name: Download artifact (download)
+
+on:
+  pull_request:
+    paths:
+      - '**download-artifact**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'node_modules/**'
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Wait
+        run: sleep 60s
+
+      - name: Download
+        uses: ./download-artifact/
+        with:
+          workflow: download-artifact-upload.yml
+          name: artifact
+          path: artifact
+
+      - name: Test
+        run: cat artifact/sha | grep $GITHUB_SHA

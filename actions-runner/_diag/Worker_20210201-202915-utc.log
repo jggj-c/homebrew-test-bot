@@ -1,0 +1,1699 @@
+[2021-02-01 20:29:15Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2021-02-01 20:29:15Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:15Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:15Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:29:17Z INFO Worker] Version: 2.276.1
+[2021-02-01 20:29:17Z INFO Worker] Commit: 5effa808be96eae7f2e08d713426b8d056bddff1
+[2021-02-01 20:29:17Z INFO Worker] Culture: en-US
+[2021-02-01 20:29:17Z INFO Worker] UI Culture: en-US
+[2021-02-01 20:29:17Z INFO Worker] Waiting to receive the job message from the channel.
+[2021-02-01 20:29:17Z INFO Worker] Message received.
+[2021-02-01 20:29:21Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/tests.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "Homebrew/actions",
+        "ref": "master",
+        "repositoryType": "GitHub",
+        "path": "setup-homebrew"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 13,
+        "col": 13,
+        "lit": "Set up Homebrew"
+      },
+      "contextName": "set-up-homebrew",
+      "condition": "success()",
+      "id": "ef04bd5f-ebdf-5172-c399-5914ef9191ec",
+      "name": "Homebrewactions"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/cache",
+        "ref": "v1",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 13,
+        "lit": "Cache Homebrew Bundler RubyGems"
+      },
+      "contextName": "cache",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 21,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 21,
+              "col": 9,
+              "lit": "path"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 21,
+              "col": 15,
+              "expr": "steps.set-up-homebrew.outputs.gems-path"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 22,
+              "col": 9,
+              "lit": "key"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 22,
+              "col": 14,
+              "expr": "format('{0}-rubygems-{1}', runner.os, steps.set-up-homebrew.outputs.gems-hash)"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 23,
+              "col": 9,
+              "lit": "restore-keys"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 23,
+              "col": 23,
+              "expr": "format('{0}-rubygems-', runner.os)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "67925c9d-c511-5f75-eea1-0fea83e53428",
+      "name": "actionscache"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 25,
+        "col": 13,
+        "lit": "Install Homebrew Bundler RubyGems"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 27,
+              "col": 12,
+              "lit": "brew install-bundler-gems"
+            }
+          }
+        ]
+      },
+      "condition": "success() && (steps.cache.outputs.cache-hit != 'true')",
+      "id": "ddc844d5-47f0-570d-76be-37f4162efe39",
+      "name": "run1"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 12,
+              "lit": "brew test-bot --only-cleanup-before"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "b5a23d87-ee78-56b4-e63f-3449fa35ded4",
+      "name": "run2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 31,
+              "col": 12,
+              "lit": "brew test-bot --only-setup"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "5fc72dc4-6018-57b2-fb29-5bf4f44503ca",
+      "name": "run3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 33,
+              "col": 12,
+              "lit": "brew test-bot --only-tap-syntax"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "30f8dbbe-9579-5db4-43b7-6b8b1342c64b",
+      "name": "run4"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/setup-ruby",
+        "ref": "master",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 35,
+        "col": 13,
+        "lit": "Set up Ruby"
+      },
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 39,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 39,
+              "col": 9,
+              "lit": "ruby-version"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 39,
+              "col": 23,
+              "lit": "2.6"
+            }
+          }
+        ]
+      },
+      "condition": "success() && (matrix.os == 'ubuntu-latest')",
+      "id": "193cc33b-9109-56cf-1c10-bb6430bab7f4",
+      "name": "actionssetup-ruby"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 41,
+        "col": 13,
+        "lit": "Install Bundler"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 43,
+              "col": 12,
+              "lit": "gem install bundler -v \"~>1\""
+            }
+          }
+        ]
+      },
+      "condition": "success() && (matrix.os == 'ubuntu-latest')",
+      "id": "16f3442c-899a-507e-86fc-0dc6ae004d1f",
+      "name": "run5"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 45,
+        "col": 13,
+        "lit": "Install Homebrew/homebrew-test-bot RubyGems"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 46,
+              "col": 12,
+              "lit": "bundle install --jobs 4 --retry 3"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "01cc49f3-e81d-5934-2438-40c37e62f638",
+      "name": "run6"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 48,
+        "col": 13,
+        "lit": "Run Homebrew/homebrew-test-bot RSpec tests"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 49,
+              "col": 12,
+              "lit": "bundle exec rspec"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "67cf0ca2-7ab1-572a-e693-233453d6167c",
+      "name": "run7"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 51,
+        "col": 13,
+        "lit": "Build Docker image"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 53,
+              "col": 12,
+              "lit": "docker build -t brew ."
+            }
+          }
+        ]
+      },
+      "condition": "success() && (matrix.os == 'ubuntu-latest')",
+      "id": "b6c716b2-dc58-5188-1620-89a489520572",
+      "name": "run8"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 55,
+        "col": 13,
+        "lit": "Run brew test-bot --only-formulae --test-default-formula"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 56,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot --test-default-formula\nelse\n  brew test-bot --test-default-formula\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "8c6cdce6-dcbb-565a-627d-ba0ec6e4384e",
+      "name": "run9"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 66,
+        "col": 13,
+        "lit": "Output brew test-bot failures"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 68,
+              "col": 12,
+              "lit": "cat steps_output.txt\nrm steps_output.txt\n"
+            }
+          }
+        ]
+      },
+      "condition": "success() && (matrix.os == 'macOS-latest')",
+      "id": "a945d47e-d831-5f74-8c0d-e9f7d1a25217",
+      "name": "run10"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 72,
+        "col": 13,
+        "lit": "Run brew test-bot --only-cleanup-after"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 73,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot --only-cleanup-after\nelse\n  brew test-bot --only-cleanup-after\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "bc7bc074-3bdc-5705-702e-0b5324353625",
+      "name": "run11"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 83,
+        "col": 13,
+        "lit": "Run brew test-bot --ci-upload --dry-run"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 84,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot --ci-upload --dry-run\nelse\n  brew test-bot --ci-upload --dry-run\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "ca355319-1f48-552b-6879-784064ad4b45",
+      "name": "run12"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 94,
+        "col": 13,
+        "lit": "Run brew test-bot --only-setup --dry-run"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 95,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot --only-setup --dry-run\nelse\n  brew test-bot --only-setup --dry-run\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "1228731f-832c-5462-f14c-9e8c31c0549c",
+      "name": "run13"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 105,
+        "col": 13,
+        "lit": "Run brew test-bot testbottest --only-formulae --dry-run"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 106,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot testbottest --only-formulae --dry-run\nelse\n  brew test-bot testbottest --only-formulae --dry-run\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "662fbb09-d025-5808-b1be-69e1bcb405e5",
+      "name": "run14"
+    }
+  ],
+  "variables": {
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system": {
+      "value": "actions"
+    },
+    "system.hosttype": {
+      "value": "actions"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.collectionId": {
+      "value": "1a835a7f-91df-4178-b41d-5db803982e00"
+    },
+    "system.collectionUri": {
+      "value": "https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/"
+    },
+    "system.taskDefinitionsUri": {
+      "value": "https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/"
+    },
+    "system.pipelineStartTime": {
+      "value": "2021-02-01 20:29:11+00:00"
+    },
+    "system.definitionId": {
+      "value": "3"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UseContextNameForGITHUBACTION": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "163"
+    },
+    "build.containerId": {
+      "value": "5709616"
+    },
+    "system.definitionName": {
+      "value": "homebrew-test-bot"
+    },
+    "system.planId": {
+      "value": "90810f25-9ac6-444f-839c-8ff837e616b5"
+    },
+    "system.timelineId": {
+      "value": "90810f25-9ac6-444f-839c-8ff837e616b5"
+    },
+    "system.stageDisplayName": {
+      "value": "__default"
+    },
+    "system.stageId": {
+      "value": "96ac2280-8cb4-5df5-99de-dd2da759617d"
+    },
+    "system.stageName": {
+      "value": "__default"
+    },
+    "system.stageAttempt": {
+      "value": "1"
+    },
+    "system.phaseDisplayName": {
+      "value": "tests"
+    },
+    "system.phaseId": {
+      "value": "8bfbeaae-4c8e-5f12-f154-edd305817000"
+    },
+    "system.phaseName": {
+      "value": "tests"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "tests.ubuntu-latest"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "2"
+    },
+    "system.github.job": {
+      "value": "tests"
+    },
+    "system.jobDisplayName": {
+      "value": "tests (ubuntu-latest)"
+    },
+    "system.jobId": {
+      "value": "e29387e2-900f-5996-ba66-117cdf82e928"
+    },
+    "system.jobName": {
+      "value": "ubuntu-latest"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 12,
+    "planId": "90810f25-9ac6-444f-839c-8ff837e616b5",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/163",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "homebrew-test-bot"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "jggj-c"
+    }
+  },
+  "timeline": {
+    "id": "90810f25-9ac6-444f-839c-8ff837e616b5",
+    "changeId": 14,
+    "location": null
+  },
+  "jobId": "e29387e2-900f-5996-ba66-117cdf82e928",
+  "jobDisplayName": "tests (ubuntu-latest)",
+  "jobName": "ubuntu-latest",
+  "requestId": 4,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "1a835a7f-91df-4178-b41d-5db803982e00",
+          "ServerName": "XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/master"
+        },
+        {
+          "k": "sha",
+          "v": "6d9d6a82be9d30c91fa0e0d52719387bb1972077"
+        },
+        {
+          "k": "repository",
+          "v": "jggj-c/homebrew-test-bot"
+        },
+        {
+          "k": "repository_owner",
+          "v": "jggj-c"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/jggj-c/homebrew-test-bot.git"
+        },
+        {
+          "k": "run_id",
+          "v": "528817531"
+        },
+        {
+          "k": "run_number",
+          "v": "21"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "actor",
+          "v": "jggj-c"
+        },
+        {
+          "k": "workflow",
+          "v": "GitHub Actions CI"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "6d9d6a82be9d30c91fa0e0d52719387bb1972077"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "c9150e4c4e1fc0b7e7c54dc52511bca3777ec9bf"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "21974223+jggj-c@users.noreply.github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "jgj_c"
+                              },
+                              {
+                                "k": "username",
+                                "v": "jggj-c"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "noreply@github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "GitHub"
+                              },
+                              {
+                                "k": "username",
+                                "v": "web-flow"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "6d9d6a82be9d30c91fa0e0d52719387bb1972077"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Update tests.yml"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2021-02-02T09:26:39+13:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "9ac2ed1906d2200ccc98bc1dcae2cb712294eb2b"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/jggj-c/homebrew-test-bot/commit/6d9d6a82be9d30c91fa0e0d52719387bb1972077"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/jggj-c/homebrew-test-bot/compare/c9150e4c4e1f...6d9d6a82be9d"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "21974223+jggj-c@users.noreply.github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "jgj_c"
+                          },
+                          {
+                            "k": "username",
+                            "v": "jggj-c"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "noreply@github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "GitHub"
+                          },
+                          {
+                            "k": "username",
+                            "v": "web-flow"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "6d9d6a82be9d30c91fa0e0d52719387bb1972077"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Update tests.yml"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2021-02-02T09:26:39+13:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "9ac2ed1906d2200ccc98bc1dcae2cb712294eb2b"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot/commit/6d9d6a82be9d30c91fa0e0d52719387bb1972077"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "21974223+jggj-c@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "jggj-c"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/master"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1610187825.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "🎰 Tests the full lifecycle of a Homebrew change."
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": true
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "jggj-c/homebrew-test-bot"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/jggj-c/homebrew-test-bot.git"
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": true
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot"
+                    },
+                    {
+                      "k": "id",
+                      "v": 328128314.0
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "Ruby"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "key",
+                            "v": "bsd-2-clause"
+                          },
+                          {
+                            "k": "name",
+                            "v": "BSD 2-Clause \"Simplified\" License"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDc6TGljZW5zZTQ="
+                          },
+                          {
+                            "k": "spdx_id",
+                            "v": "BSD-2-Clause"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/licenses/bsd-2-clause"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "homebrew-test-bot"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDEwOlJlcG9zaXRvcnkzMjgxMjgzMTQ="
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/21974223?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "21974223+jggj-c@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/jggj-c/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/jggj-c/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/jggj-c/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/jggj-c/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/jggj-c"
+                          },
+                          {
+                            "k": "id",
+                            "v": 21974223.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "jggj-c"
+                          },
+                          {
+                            "k": "name",
+                            "v": "jggj-c"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjIxOTc0MjIz"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/jggj-c/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/jggj-c/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/jggj-c/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/jggj-c/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/jggj-c/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/jggj-c"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1612211200.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 2227.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:jggj-c/homebrew-test-bot.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/teams"
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2021-02-01T20:07:00Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/21974223?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/jggj-c/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/jggj-c/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/jggj-c/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/jggj-c/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/jggj-c"
+                    },
+                    {
+                      "k": "id",
+                      "v": 21974223.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "jggj-c"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjIxOTc0MjIz"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/jggj-c/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/jggj-c/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/jggj-c/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/jggj-c/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/jggj-c/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/jggj-c"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        }
+      ]
+    },
+    "needs": {
+      "t": 2
+    },
+    "matrix": {
+      "t": 2,
+      "d": [
+        {
+          "k": "os",
+          "v": "ubuntu-latest"
+        }
+      ]
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 2.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 2.0
+        }
+      ]
+    }
+  }
+}
+[2021-02-01 20:29:21Z INFO JobRunner] Job ID e29387e2-900f-5996-ba66-117cdf82e928
+[2021-02-01 20:29:21Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/
+[2021-02-01 20:29:22Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:29:23Z INFO Worker] Listening for cancel message from the channel.
+[2021-02-01 20:29:23Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2021-02-01 20:29:23Z INFO Worker] Cancellation/Shutdown message received.
+[2021-02-01 20:29:25Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:29:25Z INFO JobServerQueue] Start process web console line queue.
+[2021-02-01 20:29:25Z INFO JobServerQueue] Start process file upload queue.
+[2021-02-01 20:29:25Z INFO JobServerQueue] Start process timeline update queue.
+[2021-02-01 20:29:25Z INFO ExecutionContext] Initialize GitHub context
+[2021-02-01 20:29:25Z INFO ExecutionContext] Initialize Env context
+[2021-02-01 20:29:25Z INFO ConfigurationStore] currentAssemblyLocation: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker.dll
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO ConfigurationStore] binPath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO ConfigurationStore] RootFolder: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known config file 'Runner': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.runner'
+[2021-02-01 20:29:25Z INFO ConfigurationStore] ConfigFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.runner
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:29:25Z INFO ConfigurationStore] CredFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_migrated'
+[2021-02-01 20:29:25Z INFO ConfigurationStore] MigratedCredFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_migrated
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known config file 'Service': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.service'
+[2021-02-01 20:29:25Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.service
+[2021-02-01 20:29:25Z INFO ConfigurationStore] Read setting file: 298 chars
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:29:25Z INFO JobRunner] Starting the job execution context.
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:25Z INFO JobRunner] Validating directory permissions for: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Tools': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_tool'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Temp': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp'
+[2021-02-01 20:29:25Z ERR  TempDirectoryManager] System.OperationCanceledException: The operation was canceled.
+   at System.Linq.Parallel.QueryOperator`1.GetOpenedEnumerator(Nullable`1 mergeOptions, Boolean suppressOrder, Boolean forEffect, QuerySettings querySettings)
+   at System.Linq.Parallel.ForAllOperator`1.RunSynchronously()
+   at System.Linq.ParallelEnumerable.ForAll[TSource](ParallelQuery`1 source, Action`1 action)
+   at GitHub.Runner.Sdk.IOUtil.DeleteDirectory(String path, Boolean contentsOnly, Boolean continueOnContentDeleteError, CancellationToken cancellationToken)
+   at GitHub.Runner.Worker.TempDirectoryManager.InitializeTempDirectory(IExecutionContext jobContext)
+[2021-02-01 20:29:25Z INFO JobRunner] Getting job extension.
+[2021-02-01 20:29:25Z INFO JobRunner] Initialize job. Getting all job steps.
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known config file 'SetupInfo': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.setup_info'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:25Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:25Z INFO PipelineDirectoryManager] Loading tracking config if exists: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_PipelineMapping/jggj-c/homebrew-test-bot/PipelineFolder.json
+[2021-02-01 20:29:26Z INFO PipelineDirectoryManager] Updating job run properties.
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record '271e7e45-86f6-4319-a768-4330dd98420d', success rate: 1/1.
+[2021-02-01 20:29:26Z INFO JobExtension] Downloading actions
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:29:26Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:29:26Z ERR  JobExtension] Caught cancellation exception from JobExtension Initialization: System.OperationCanceledException: The operation was canceled.
+   at System.Linq.Parallel.QueryOperator`1.GetOpenedEnumerator(Nullable`1 mergeOptions, Boolean suppressOrder, Boolean forEffect, QuerySettings querySettings)
+   at System.Linq.Parallel.ForAllOperator`1.RunSynchronously()
+   at System.Linq.ParallelEnumerable.ForAll[TSource](ParallelQuery`1 source, Action`1 action)
+   at GitHub.Runner.Sdk.IOUtil.DeleteDirectory(String path, Boolean contentsOnly, Boolean continueOnContentDeleteError, CancellationToken cancellationToken)
+   at GitHub.Runner.Sdk.IOUtil.DeleteDirectory(String path, CancellationToken cancellationToken)
+   at GitHub.Runner.Worker.ActionManager.PrepareActionsAsync(IExecutionContext executionContext, IEnumerable`1 steps)
+   at GitHub.Runner.Worker.JobExtension.InitializeJob(IExecutionContext jobContext, AgentJobRequestMessage message)
+[2021-02-01 20:29:26Z ERR  JobRunner] Job is canceled during initialize.
+[2021-02-01 20:29:26Z ERR  JobRunner] Caught exception: System.OperationCanceledException: The operation was canceled.
+   at System.Linq.Parallel.QueryOperator`1.GetOpenedEnumerator(Nullable`1 mergeOptions, Boolean suppressOrder, Boolean forEffect, QuerySettings querySettings)
+   at System.Linq.Parallel.ForAllOperator`1.RunSynchronously()
+   at System.Linq.ParallelEnumerable.ForAll[TSource](ParallelQuery`1 source, Action`1 action)
+   at GitHub.Runner.Sdk.IOUtil.DeleteDirectory(String path, Boolean contentsOnly, Boolean continueOnContentDeleteError, CancellationToken cancellationToken)
+   at GitHub.Runner.Sdk.IOUtil.DeleteDirectory(String path, CancellationToken cancellationToken)
+   at GitHub.Runner.Worker.ActionManager.PrepareActionsAsync(IExecutionContext executionContext, IEnumerable`1 steps)
+   at GitHub.Runner.Worker.JobExtension.InitializeJob(IExecutionContext jobContext, AgentJobRequestMessage message)
+   at GitHub.Runner.Worker.JobRunner.RunAsync(AgentJobRequestMessage message, CancellationToken jobRequestCancellationToken)
+[2021-02-01 20:29:26Z INFO JobRunner] Shutting down the job server queue.
+[2021-02-01 20:29:26Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2021-02-01 20:29:27Z INFO JobServerQueue] All queue process task stopped.
+[2021-02-01 20:29:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record '271e7e45-86f6-4319-a768-4330dd98420d', success rate: 1/1.
+[2021-02-01 20:29:27Z INFO JobServerQueue] Web console line queue drained.
+[2021-02-01 20:29:27Z INFO JobServerQueue] Uploading 2 files in one shot.
+[2021-02-01 20:29:28Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2021-02-01 20:29:28Z INFO JobServerQueue] File upload queue drained.
+[2021-02-01 20:29:29Z INFO JobServerQueue] Timeline update queue drained.
+[2021-02-01 20:29:29Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2021-02-01 20:29:29Z INFO TempDirectoryManager] Cleaning runner temp folder: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp
+[2021-02-01 20:29:29Z INFO JobRunner] Raising job completed event.

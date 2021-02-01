@@ -1,0 +1,8 @@
+2021-02-02 09:46:28 +1300
+
+/usr/local/Cellar/subversion/1.14.0_6/bin/svnadmin
+verify
+test
+
+* Verifying metadata at revision 0 ...
+* Verified revision 0.

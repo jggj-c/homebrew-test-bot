@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 22,
+  "agentName": "rews-MacBook-Pro",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd",
+  "gitHubUrl": "https://github.com/jggj-c/homebrew-test-bot",
+  "workFolder": "_work"
+}

@@ -1,0 +1,27 @@
+name: Dismiss approvals
+
+on:
+  pull_request:
+    paths:
+      - '**dismiss-approvals**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'node_modules/**'
+
+jobs:
+  dismiss-approvals:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Approve
+        env:
+          GITHUB_TOKEN: ${{github.token}}
+        run: gh pr review --approve ${{github.event.pull_request.number}}
+
+      - name: Dismiss
+        uses: ./dismiss-approvals/
+        with:
+          pr: ${{github.event.pull_request.number}}
+          message: test

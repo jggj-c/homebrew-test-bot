@@ -1,0 +1,3392 @@
+[2021-02-01 20:38:57Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2021-02-01 20:38:57Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:38:57Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:38:57Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:38:58Z INFO Worker] Version: 2.276.1
+[2021-02-01 20:38:58Z INFO Worker] Commit: 5effa808be96eae7f2e08d713426b8d056bddff1
+[2021-02-01 20:38:58Z INFO Worker] Culture: en-US
+[2021-02-01 20:38:58Z INFO Worker] UI Culture: en-US
+[2021-02-01 20:38:58Z INFO Worker] Waiting to receive the job message from the channel.
+[2021-02-01 20:38:58Z INFO Worker] Message received.
+[2021-02-01 20:39:00Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/tests.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "Homebrew/actions",
+        "ref": "master",
+        "repositoryType": "GitHub",
+        "path": "setup-homebrew"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 13,
+        "col": 13,
+        "lit": "Set up Homebrew"
+      },
+      "contextName": "set-up-homebrew",
+      "condition": "success()",
+      "id": "6e4d85d8-f516-5c2d-cf85-bd31ea34bd0b",
+      "name": "Homebrewactions"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/cache",
+        "ref": "v1",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 13,
+        "lit": "Cache Homebrew Bundler RubyGems"
+      },
+      "contextName": "cache",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 21,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 21,
+              "col": 9,
+              "lit": "path"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 21,
+              "col": 15,
+              "expr": "steps.set-up-homebrew.outputs.gems-path"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 22,
+              "col": 9,
+              "lit": "key"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 22,
+              "col": 14,
+              "expr": "format('{0}-rubygems-{1}', runner.os, steps.set-up-homebrew.outputs.gems-hash)"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 23,
+              "col": 9,
+              "lit": "restore-keys"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 23,
+              "col": 23,
+              "expr": "format('{0}-rubygems-', runner.os)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "8678d9a7-ea6c-55de-567f-39c19746e9bc",
+      "name": "actionscache"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 25,
+        "col": 13,
+        "lit": "Install Homebrew Bundler RubyGems"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 27,
+              "col": 12,
+              "lit": "brew install-bundler-gems"
+            }
+          }
+        ]
+      },
+      "condition": "success() && (steps.cache.outputs.cache-hit != 'true')",
+      "id": "a01e989e-b17b-5a12-37be-6961161f66f4",
+      "name": "run1"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 12,
+              "lit": "brew test-bot --only-cleanup-before"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "9b0d95b2-83e0-53d7-2e23-81d1b8a343bc",
+      "name": "run2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 31,
+              "col": 12,
+              "lit": "brew test-bot --only-setup"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "b9e9a550-0257-5614-96a9-e65491784bc4",
+      "name": "run3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 33,
+              "col": 12,
+              "lit": "brew test-bot --only-tap-syntax"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "52d84a36-61d7-555c-64dd-92404eebf42d",
+      "name": "run4"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/setup-ruby",
+        "ref": "master",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 35,
+        "col": 13,
+        "lit": "Set up Ruby"
+      },
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 39,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 39,
+              "col": 9,
+              "lit": "ruby-version"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 39,
+              "col": 23,
+              "lit": "2.6"
+            }
+          }
+        ]
+      },
+      "condition": "success() && (matrix.os == 'ubuntu-latest')",
+      "id": "25df3fd5-c75e-5226-defe-f2e448687b91",
+      "name": "actionssetup-ruby"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 41,
+        "col": 13,
+        "lit": "Install Bundler"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 43,
+              "col": 12,
+              "lit": "gem install bundler -v \"~>1\""
+            }
+          }
+        ]
+      },
+      "condition": "success() && (matrix.os == 'ubuntu-latest')",
+      "id": "885f70ca-fecd-51e0-d430-95bb94dba315",
+      "name": "run5"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 45,
+        "col": 13,
+        "lit": "Install Homebrew/homebrew-test-bot RubyGems"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 46,
+              "col": 12,
+              "lit": "bundle install --jobs 4 --retry 3"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "65fecefa-b593-5fd4-15fd-5c79dac10e6c",
+      "name": "run6"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 48,
+        "col": 13,
+        "lit": "Run Homebrew/homebrew-test-bot RSpec tests"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 49,
+              "col": 12,
+              "lit": "bundle exec rspec"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "550d6e91-af8d-52b0-5c30-879445f6d5e2",
+      "name": "run7"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 51,
+        "col": 13,
+        "lit": "Build Docker image"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 53,
+              "col": 12,
+              "lit": "docker build -t brew ."
+            }
+          }
+        ]
+      },
+      "condition": "success() && (matrix.os == 'ubuntu-latest')",
+      "id": "e92d3383-e75b-5ea1-fc25-f0707ab561af",
+      "name": "run8"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 55,
+        "col": 13,
+        "lit": "Run brew test-bot --only-formulae --test-default-formula"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 56,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot --test-default-formula\nelse\n  brew test-bot --test-default-formula\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "746287d3-5a7f-5bc5-a496-90e085a6e50e",
+      "name": "run9"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 66,
+        "col": 13,
+        "lit": "Output brew test-bot failures"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 68,
+              "col": 12,
+              "lit": "cat steps_output.txt\nrm steps_output.txt\n"
+            }
+          }
+        ]
+      },
+      "condition": "success() && (matrix.os == 'macOS-latest')",
+      "id": "3f89c226-b7b8-5220-ceff-db75271aaa2e",
+      "name": "run10"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 72,
+        "col": 13,
+        "lit": "Run brew test-bot --only-cleanup-after"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 73,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot --only-cleanup-after\nelse\n  brew test-bot --only-cleanup-after\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "305ff37d-fb84-5528-167e-918ff9bc9f17",
+      "name": "run11"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 83,
+        "col": 13,
+        "lit": "Run brew test-bot --ci-upload --dry-run"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 84,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot --ci-upload --dry-run\nelse\n  brew test-bot --ci-upload --dry-run\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "f6d3e7f6-e5bb-53ea-b29c-92d3e1873d7a",
+      "name": "run12"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 94,
+        "col": 13,
+        "lit": "Run brew test-bot --only-setup --dry-run"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 95,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot --only-setup --dry-run\nelse\n  brew test-bot --only-setup --dry-run\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "bbf70137-2daf-5639-50b5-02985f654e3b",
+      "name": "run13"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 105,
+        "col": 13,
+        "lit": "Run brew test-bot testbottest --only-formulae --dry-run"
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 106,
+              "col": 12,
+              "lit": "if [ \"$RUNNER_OS\" = \"Linux\" ]; then\n  docker run \\\n    -e GITHUB_ACTIONS -e GITHUB_BASE_REF -e GITHUB_REF -e GITHUB_REPOSITORY -e GITHUB_SHA \\\n    --rm brew \\\n    brew test-bot testbottest --only-formulae --dry-run\nelse\n  brew test-bot testbottest --only-formulae --dry-run\nfi\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "9a9c03f7-9d35-577a-8d30-f8f1ef0b0478",
+      "name": "run14"
+    }
+  ],
+  "variables": {
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system": {
+      "value": "actions"
+    },
+    "system.hosttype": {
+      "value": "actions"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.collectionId": {
+      "value": "1a835a7f-91df-4178-b41d-5db803982e00"
+    },
+    "system.collectionUri": {
+      "value": "https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/"
+    },
+    "system.taskDefinitionsUri": {
+      "value": "https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/"
+    },
+    "system.pipelineStartTime": {
+      "value": "2021-02-01 20:38:53+00:00"
+    },
+    "system.definitionId": {
+      "value": "3"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UseContextNameForGITHUBACTION": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "172"
+    },
+    "build.containerId": {
+      "value": "5710567"
+    },
+    "system.definitionName": {
+      "value": "homebrew-test-bot"
+    },
+    "system.planId": {
+      "value": "bf9549c5-0e2e-4fd3-be7b-c47d76e3eb3f"
+    },
+    "system.timelineId": {
+      "value": "bf9549c5-0e2e-4fd3-be7b-c47d76e3eb3f"
+    },
+    "system.stageDisplayName": {
+      "value": "__default"
+    },
+    "system.stageId": {
+      "value": "96ac2280-8cb4-5df5-99de-dd2da759617d"
+    },
+    "system.stageName": {
+      "value": "__default"
+    },
+    "system.stageAttempt": {
+      "value": "1"
+    },
+    "system.phaseDisplayName": {
+      "value": "tests"
+    },
+    "system.phaseId": {
+      "value": "8bfbeaae-4c8e-5f12-f154-edd305817000"
+    },
+    "system.phaseName": {
+      "value": "tests"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "tests.macOS-latest"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "2"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "2"
+    },
+    "system.github.job": {
+      "value": "tests"
+    },
+    "system.jobDisplayName": {
+      "value": "tests (macOS-latest)"
+    },
+    "system.jobId": {
+      "value": "1922b6d9-bc7f-58d9-700c-a282774f1599"
+    },
+    "system.jobName": {
+      "value": "macOS-latest"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 12,
+    "planId": "bf9549c5-0e2e-4fd3-be7b-c47d76e3eb3f",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/172",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "homebrew-test-bot"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "jggj-c"
+    }
+  },
+  "timeline": {
+    "id": "bf9549c5-0e2e-4fd3-be7b-c47d76e3eb3f",
+    "changeId": 8,
+    "location": null
+  },
+  "jobId": "1922b6d9-bc7f-58d9-700c-a282774f1599",
+  "jobDisplayName": "tests (macOS-latest)",
+  "jobName": "macOS-latest",
+  "requestId": 5,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "1a835a7f-91df-4178-b41d-5db803982e00",
+          "ServerName": "XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/master"
+        },
+        {
+          "k": "sha",
+          "v": "844f6e29c52e6ce01f20554987e4ca6fa3c82b17"
+        },
+        {
+          "k": "repository",
+          "v": "jggj-c/homebrew-test-bot"
+        },
+        {
+          "k": "repository_owner",
+          "v": "jggj-c"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/jggj-c/homebrew-test-bot.git"
+        },
+        {
+          "k": "run_id",
+          "v": "528843636"
+        },
+        {
+          "k": "run_number",
+          "v": "22"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "actor",
+          "v": "jggj-c"
+        },
+        {
+          "k": "workflow",
+          "v": "GitHub Actions CI"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "844f6e29c52e6ce01f20554987e4ca6fa3c82b17"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "6d9d6a82be9d30c91fa0e0d52719387bb1972077"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "21974223+jggj-c@users.noreply.github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "jgj_c"
+                              },
+                              {
+                                "k": "username",
+                                "v": "jggj-c"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "noreply@github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "GitHub"
+                              },
+                              {
+                                "k": "username",
+                                "v": "web-flow"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "844f6e29c52e6ce01f20554987e4ca6fa3c82b17"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Update issue templates"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2021-02-02T09:38:47+13:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "f71ac72ceac4ce4e4d37d6eb4065b94e191fcc42"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/jggj-c/homebrew-test-bot/commit/844f6e29c52e6ce01f20554987e4ca6fa3c82b17"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/jggj-c/homebrew-test-bot/compare/6d9d6a82be9d...844f6e29c52e"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "21974223+jggj-c@users.noreply.github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "jgj_c"
+                          },
+                          {
+                            "k": "username",
+                            "v": "jggj-c"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "noreply@github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "GitHub"
+                          },
+                          {
+                            "k": "username",
+                            "v": "web-flow"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "844f6e29c52e6ce01f20554987e4ca6fa3c82b17"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Update issue templates"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2021-02-02T09:38:47+13:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "f71ac72ceac4ce4e4d37d6eb4065b94e191fcc42"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot/commit/844f6e29c52e6ce01f20554987e4ca6fa3c82b17"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "21974223+jggj-c@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "jggj-c"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/master"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1610187825.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "🎰 Tests the full lifecycle of a Homebrew change."
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": true
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "jggj-c/homebrew-test-bot"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/jggj-c/homebrew-test-bot.git"
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": true
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot"
+                    },
+                    {
+                      "k": "id",
+                      "v": 328128314.0
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "Ruby"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "key",
+                            "v": "bsd-2-clause"
+                          },
+                          {
+                            "k": "name",
+                            "v": "BSD 2-Clause \"Simplified\" License"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDc6TGljZW5zZTQ="
+                          },
+                          {
+                            "k": "spdx_id",
+                            "v": "BSD-2-Clause"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/licenses/bsd-2-clause"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "homebrew-test-bot"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDEwOlJlcG9zaXRvcnkzMjgxMjgzMTQ="
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/21974223?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "21974223+jggj-c@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/jggj-c/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/jggj-c/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/jggj-c/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/jggj-c/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/jggj-c"
+                          },
+                          {
+                            "k": "id",
+                            "v": 21974223.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "jggj-c"
+                          },
+                          {
+                            "k": "name",
+                            "v": "jggj-c"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjIxOTc0MjIz"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/jggj-c/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/jggj-c/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/jggj-c/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/jggj-c/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/jggj-c/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/jggj-c"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1612211928.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 2227.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:jggj-c/homebrew-test-bot.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/teams"
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/jggj-c/homebrew-test-bot/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2021-02-01T20:26:42Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/jggj-c/homebrew-test-bot"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/21974223?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/jggj-c/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/jggj-c/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/jggj-c/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/jggj-c/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/jggj-c"
+                    },
+                    {
+                      "k": "id",
+                      "v": 21974223.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "jggj-c"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjIxOTc0MjIz"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/jggj-c/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/jggj-c/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/jggj-c/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/jggj-c/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/jggj-c/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/jggj-c"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        }
+      ]
+    },
+    "needs": {
+      "t": 2
+    },
+    "matrix": {
+      "t": 2,
+      "d": [
+        {
+          "k": "os",
+          "v": "macOS-latest"
+        }
+      ]
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 1.0
+        },
+        {
+          "k": "job-total",
+          "v": 2.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 2.0
+        }
+      ]
+    }
+  }
+}
+[2021-02-01 20:39:00Z INFO JobRunner] Job ID 1922b6d9-bc7f-58d9-700c-a282774f1599
+[2021-02-01 20:39:00Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/XPi5cu7UZFeSSQbE4xTS4TlCjEN1U1Xano9xP3AJGARHFLPHCd/
+[2021-02-01 20:39:00Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-02-01 20:39:01Z INFO Worker] Listening for cancel message from the channel.
+[2021-02-01 20:39:01Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2021-02-01 20:39:02Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-02-01 20:39:02Z INFO JobServerQueue] Start process web console line queue.
+[2021-02-01 20:39:02Z INFO JobServerQueue] Start process file upload queue.
+[2021-02-01 20:39:02Z INFO JobServerQueue] Start process timeline update queue.
+[2021-02-01 20:39:02Z INFO ExecutionContext] Initialize GitHub context
+[2021-02-01 20:39:02Z INFO ExecutionContext] Initialize Env context
+[2021-02-01 20:39:02Z INFO ConfigurationStore] currentAssemblyLocation: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin/Runner.Worker.dll
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:02Z INFO ConfigurationStore] binPath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:02Z INFO ConfigurationStore] RootFolder: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:02Z INFO HostContext] Well known config file 'Runner': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.runner'
+[2021-02-01 20:39:02Z INFO ConfigurationStore] ConfigFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.runner
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:02Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:39:02Z INFO ConfigurationStore] CredFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:02Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_migrated'
+[2021-02-01 20:39:02Z INFO ConfigurationStore] MigratedCredFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials_migrated
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:02Z INFO HostContext] Well known config file 'Service': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.service'
+[2021-02-01 20:39:02Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.service
+[2021-02-01 20:39:02Z INFO ConfigurationStore] Read setting file: 298 chars
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:02Z INFO JobRunner] Starting the job execution context.
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:02Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:02Z INFO JobRunner] Validating directory permissions for: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Tools': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_tool'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Temp': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp'
+[2021-02-01 20:39:03Z INFO JobRunner] Getting job extension.
+[2021-02-01 20:39:03Z INFO JobRunner] Initialize job. Getting all job steps.
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known config file 'Credentials': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.credentials'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known config file 'SetupInfo': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/.setup_info'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:03Z INFO PipelineDirectoryManager] Loading tracking config if exists: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_PipelineMapping/jggj-c/homebrew-test-bot/PipelineFolder.json
+[2021-02-01 20:39:03Z INFO PipelineDirectoryManager] Updating job run properties.
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:03Z INFO JobExtension] Downloading actions
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:03Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record '85b603d1-e79d-469e-92aa-1c89cb04a80a', success rate: 1/1.
+[2021-02-01 20:39:04Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:04Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:04Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:04Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:04Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:04Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:04Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:04Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:04Z INFO ActionManager] Save archive 'https://api.github.com/repos/Homebrew/actions/tarball/5b253b6aeeea6926c0098eb58ac10ab069969f60' into /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_cebb6e58-a5e4-4e1f-bc38-a5e1c2dc73e3/e5ba9f26-b0dd-4343-b74e-02e959ad7562.tar.gz.
+[2021-02-01 20:39:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record '85b603d1-e79d-469e-92aa-1c89cb04a80a', success rate: 1/1.
+[2021-02-01 20:39:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record '85b603d1-e79d-469e-92aa-1c89cb04a80a', success rate: 1/1.
+[2021-02-01 20:39:05Z INFO ActionManager] Which: 'tar'
+[2021-02-01 20:39:06Z INFO ActionManager] Location: '/usr/bin/tar'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_cebb6e58-a5e4-4e1f-bc38-a5e1c2dc73e3/e5ba9f26-b0dd-4343-b74e-02e959ad7562.tar.gz"'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_cebb6e58-a5e4-4e1f-bc38-a5e1c2dc73e3/_staging'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:06Z INFO ProcessInvokerWrapper] Process started with process id 73640, waiting for process exit.
+[2021-02-01 20:39:07Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:07Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:07Z INFO ProcessInvokerWrapper] Finished process 73640 with exit code 0, and elapsed time 00:00:01.0197286.
+[2021-02-01 20:39:08Z INFO ActionManager] Finished getting action repository.
+[2021-02-01 20:39:09Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:09Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:09Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:09Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:09Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:09Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:09Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:09Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:09Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/cache/tarball/70655ec8323daeeaa7ef06d7c56e1b9191396cbe' into /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_d0c7adfd-2399-4467-8edb-e4333ce564ea/f1e098ac-97cf-4036-ae91-04efd5f30972.tar.gz.
+[2021-02-01 20:39:09Z INFO JobServerQueue] Try to append 1 batches web console lines for record '85b603d1-e79d-469e-92aa-1c89cb04a80a', success rate: 1/1.
+[2021-02-01 20:39:10Z INFO ActionManager] Which: 'tar'
+[2021-02-01 20:39:10Z INFO ActionManager] Location: '/usr/bin/tar'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_d0c7adfd-2399-4467-8edb-e4333ce564ea/f1e098ac-97cf-4036-ae91-04efd5f30972.tar.gz"'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_d0c7adfd-2399-4467-8edb-e4333ce564ea/_staging'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper] Process started with process id 73671, waiting for process exit.
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:10Z INFO ProcessInvokerWrapper] Finished process 73671 with exit code 0, and elapsed time 00:00:00.0606685.
+[2021-02-01 20:39:10Z INFO ActionManager] Finished getting action repository.
+[2021-02-01 20:39:10Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:10Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:10Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:10Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:10Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:10Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:10Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:10Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:10Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/setup-ruby/tarball/5f29a1cd8dfebf420691c4c9a0e832e2fae5a526' into /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_27ae715e-b200-4e41-aa3c-81ba670c55cd/461ccc18-dcf2-4d61-9764-3660b160a1f7.tar.gz.
+[2021-02-01 20:39:11Z INFO JobServerQueue] Try to append 1 batches web console lines for record '85b603d1-e79d-469e-92aa-1c89cb04a80a', success rate: 1/1.
+[2021-02-01 20:39:12Z INFO ActionManager] Which: 'tar'
+[2021-02-01 20:39:12Z INFO ActionManager] Location: '/usr/bin/tar'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_27ae715e-b200-4e41-aa3c-81ba670c55cd/461ccc18-dcf2-4d61-9764-3660b160a1f7.tar.gz"'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/_temp_27ae715e-b200-4e41-aa3c-81ba670c55cd/_staging'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper] Process started with process id 73687, waiting for process exit.
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:12Z INFO ProcessInvokerWrapper] Finished process 73687 with exit code 0, and elapsed time 00:00:00.1254097.
+[2021-02-01 20:39:12Z INFO ActionManager] Finished getting action repository.
+[2021-02-01 20:39:12Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:12Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:12Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:12Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:12Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "outputs-attributes",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node12-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "step-env"
+]
+[2021-02-01 20:39:12Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:12Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:12Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:12Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property author.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property branding.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup Homebrew",
+  "description": "Set up Homebrew environment",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "test-bot"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 11,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "debug"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "composite",
+    "hasPre": false,
+    "hasPost": false,
+    "steps": [
+      {
+        "type": "action",
+        "reference": {
+          "type": "script"
+        },
+        "contextName": "setup",
+        "inputs": {
+          "type": 2,
+          "map": [
+            {
+              "key": "script",
+              "value": {
+                "type": 3,
+                "file": 2,
+                "line": 26,
+                "col": 12,
+                "expr": "format('\"$GITHUB_ACTION_PATH/main.sh\" ''{0}'' ''{1}''\n', inputs.test-bot, inputs.debug)"
+              }
+            },
+            {
+              "key": "shell",
+              "value": {
+                "type": 0,
+                "file": 2,
+                "line": 28,
+                "col": 14,
+                "lit": "bash"
+              }
+            }
+          ]
+        },
+        "condition": "success()"
+      }
+    ],
+    "outputs": {
+      "type": 2,
+      "file": 2,
+      "line": 17,
+      "col": 3,
+      "map": [
+        {
+          "key": {
+            "type": 0,
+            "file": 2,
+            "line": 17,
+            "col": 3,
+            "lit": "gems-path"
+          },
+          "value": {
+            "type": 2,
+            "file": 2,
+            "line": 18,
+            "col": 5,
+            "map": [
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 18,
+                  "col": 5,
+                  "lit": "description"
+                },
+                "value": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 18,
+                  "col": 18,
+                  "lit": "Homebrew's Ruby gems path"
+                }
+              },
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 19,
+                  "col": 5,
+                  "lit": "value"
+                },
+                "value": {
+                  "type": 3,
+                  "file": 2,
+                  "line": 19,
+                  "col": 12,
+                  "expr": "steps.setup.outputs.gems-path"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key": {
+            "type": 0,
+            "file": 2,
+            "line": 20,
+            "col": 3,
+            "lit": "gems-hash"
+          },
+          "value": {
+            "type": 2,
+            "file": 2,
+            "line": 21,
+            "col": 5,
+            "map": [
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 21,
+                  "col": 5,
+                  "lit": "description"
+                },
+                "value": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 21,
+                  "col": 18,
+                  "lit": "Homebrew's Ruby Gemfile.lock sha256sum"
+                }
+              },
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 22,
+                  "col": 5,
+                  "lit": "value"
+                },
+                "value": {
+                  "type": 3,
+                  "file": 2,
+                  "line": 22,
+                  "col": 12,
+                  "expr": "steps.setup.outputs.gems-hash"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-02-01 20:39:13Z INFO ActionManager] Action composite: System.Collections.Generic.List`1[GitHub.DistributedTask.Pipelines.ActionStep], no more preparation.
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManager] Load action that reference repository from '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/Homebrew/actions/master/setup-homebrew'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property author.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property branding.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup Homebrew",
+  "description": "Set up Homebrew environment",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "test-bot"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 11,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "debug"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "composite",
+    "hasPre": false,
+    "hasPost": false,
+    "steps": [
+      {
+        "type": "action",
+        "reference": {
+          "type": "script"
+        },
+        "contextName": "setup",
+        "inputs": {
+          "type": 2,
+          "map": [
+            {
+              "key": "script",
+              "value": {
+                "type": 3,
+                "file": 2,
+                "line": 26,
+                "col": 12,
+                "expr": "format('\"$GITHUB_ACTION_PATH/main.sh\" ''{0}'' ''{1}''\n', inputs.test-bot, inputs.debug)"
+              }
+            },
+            {
+              "key": "shell",
+              "value": {
+                "type": 0,
+                "file": 2,
+                "line": 28,
+                "col": 14,
+                "lit": "bash"
+              }
+            }
+          ]
+        },
+        "condition": "success()"
+      }
+    ],
+    "outputs": {
+      "type": 2,
+      "file": 2,
+      "line": 17,
+      "col": 3,
+      "map": [
+        {
+          "key": {
+            "type": 0,
+            "file": 2,
+            "line": 17,
+            "col": 3,
+            "lit": "gems-path"
+          },
+          "value": {
+            "type": 2,
+            "file": 2,
+            "line": 18,
+            "col": 5,
+            "map": [
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 18,
+                  "col": 5,
+                  "lit": "description"
+                },
+                "value": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 18,
+                  "col": 18,
+                  "lit": "Homebrew's Ruby gems path"
+                }
+              },
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 19,
+                  "col": 5,
+                  "lit": "value"
+                },
+                "value": {
+                  "type": 3,
+                  "file": 2,
+                  "line": 19,
+                  "col": 12,
+                  "expr": "steps.setup.outputs.gems-path"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key": {
+            "type": 0,
+            "file": 2,
+            "line": 20,
+            "col": 3,
+            "lit": "gems-hash"
+          },
+          "value": {
+            "type": 2,
+            "file": 2,
+            "line": 21,
+            "col": 5,
+            "map": [
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 21,
+                  "col": 5,
+                  "lit": "description"
+                },
+                "value": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 21,
+                  "col": 18,
+                  "lit": "Homebrew's Ruby Gemfile.lock sha256sum"
+                }
+              },
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 22,
+                  "col": 5,
+                  "lit": "value"
+                },
+                "value": {
+                  "type": 3,
+                  "file": 2,
+                  "line": 22,
+                  "col": 12,
+                  "expr": "steps.setup.outputs.gems-hash"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-02-01 20:39:13Z INFO ActionManager] Load 1 action steps.
+[2021-02-01 20:39:13Z INFO ActionManager] Load: 2 number of outputs
+[2021-02-01 20:39:13Z INFO ActionManager] Details: {
+  "type": 2,
+  "file": 2,
+  "line": 17,
+  "col": 3,
+  "map": [
+    {
+      "key": {
+        "type": 0,
+        "file": 2,
+        "line": 17,
+        "col": 3,
+        "lit": "gems-path"
+      },
+      "value": {
+        "type": 2,
+        "file": 2,
+        "line": 18,
+        "col": 5,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 2,
+              "line": 18,
+              "col": 5,
+              "lit": "description"
+            },
+            "value": {
+              "type": 0,
+              "file": 2,
+              "line": 18,
+              "col": 18,
+              "lit": "Homebrew's Ruby gems path"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 2,
+              "line": 19,
+              "col": 5,
+              "lit": "value"
+            },
+            "value": {
+              "type": 3,
+              "file": 2,
+              "line": 19,
+              "col": 12,
+              "expr": "steps.setup.outputs.gems-path"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": {
+        "type": 0,
+        "file": 2,
+        "line": 20,
+        "col": 3,
+        "lit": "gems-hash"
+      },
+      "value": {
+        "type": 2,
+        "file": 2,
+        "line": 21,
+        "col": 5,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 2,
+              "line": 21,
+              "col": 5,
+              "lit": "description"
+            },
+            "value": {
+              "type": 0,
+              "file": 2,
+              "line": 21,
+              "col": 18,
+              "lit": "Homebrew's Ruby Gemfile.lock sha256sum"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 2,
+              "line": 22,
+              "col": 5,
+              "lit": "value"
+            },
+            "value": {
+              "type": 3,
+              "file": 2,
+              "line": 22,
+              "col": 12,
+              "expr": "steps.setup.outputs.gems-hash"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property author.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property branding.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Cache",
+  "description": "Cache artifacts like dependencies and build outputs to improve workflow execution time",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "restore-keys"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/restore/index.js",
+    "pre": null,
+    "post": "dist/save/index.js",
+    "cleanupCondition": "success()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-02-01 20:39:13Z INFO ActionManager] Action node.js file: dist/restore/index.js, no more preparation.
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManager] Load action that reference repository from '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/actions/cache/v1'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property author.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property branding.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Cache",
+  "description": "Cache artifacts like dependencies and build outputs to improve workflow execution time",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "restore-keys"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/restore/index.js",
+    "pre": null,
+    "post": "dist/save/index.js",
+    "cleanupCondition": "success()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-02-01 20:39:13Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-02-01 20:39:13Z INFO ActionManager] Action node.js file: dist/restore/index.js.
+[2021-02-01 20:39:13Z INFO ActionManager] Action post node.js file: dist/save/index.js.
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property author.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup Ruby",
+  "description": "Set up a specific version of Ruby and add the command-line tools to the PATH",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 5,
+          "col": 3,
+          "lit": "ruby-version"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 7,
+          "col": 14,
+          "lit": ">= 2.4"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 9,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": {
+    "version": "The version property will not be supported after October 1, 2019. Use ruby-version instead"
+  }
+}
+[2021-02-01 20:39:13Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManager] Load action that reference repository from '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/actions/setup-ruby/master'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Ignore action property author.
+[2021-02-01 20:39:13Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup Ruby",
+  "description": "Set up a specific version of Ruby and add the command-line tools to the PATH",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 5,
+          "col": 3,
+          "lit": "ruby-version"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 7,
+          "col": 14,
+          "lit": ">= 2.4"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 9,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": {
+    "version": "The version property will not be supported after October 1, 2019. Use ruby-version instead"
+  }
+}
+[2021-02-01 20:39:13Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-02-01 20:39:13Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-02-01 20:39:13Z INFO ActionManager] Action post node.js file: N/A.
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO JobExtension] Adding .
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:13Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:14Z INFO JobExtension] Total accessible running process: 224.
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:14Z INFO JobRunner] Total job steps: 17.
+[2021-02-01 20:39:14Z INFO JobRunner] Run all job steps.
+[2021-02-01 20:39:14Z INFO StepsRunner] Processing step: DisplayName='Set up Homebrew'
+[2021-02-01 20:39:14Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:14Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:14Z INFO StepsRunner] Result: true
+[2021-02-01 20:39:14Z INFO StepsRunner] Starting the step.
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:14Z INFO ActionManager] Load action that reference repository from '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions/Homebrew/actions/master/setup-homebrew'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Actions': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_actions'
+[2021-02-01 20:39:14Z INFO ActionManifestManager] Ignore action property author.
+[2021-02-01 20:39:14Z INFO ActionManifestManager] Ignore action property branding.
+[2021-02-01 20:39:14Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup Homebrew",
+  "description": "Set up Homebrew environment",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "test-bot"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 11,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "debug"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "composite",
+    "hasPre": false,
+    "hasPost": false,
+    "steps": [
+      {
+        "type": "action",
+        "reference": {
+          "type": "script"
+        },
+        "contextName": "setup",
+        "inputs": {
+          "type": 2,
+          "map": [
+            {
+              "key": "script",
+              "value": {
+                "type": 3,
+                "file": 2,
+                "line": 26,
+                "col": 12,
+                "expr": "format('\"$GITHUB_ACTION_PATH/main.sh\" ''{0}'' ''{1}''\n', inputs.test-bot, inputs.debug)"
+              }
+            },
+            {
+              "key": "shell",
+              "value": {
+                "type": 0,
+                "file": 2,
+                "line": 28,
+                "col": 14,
+                "lit": "bash"
+              }
+            }
+          ]
+        },
+        "condition": "success()"
+      }
+    ],
+    "outputs": {
+      "type": 2,
+      "file": 2,
+      "line": 17,
+      "col": 3,
+      "map": [
+        {
+          "key": {
+            "type": 0,
+            "file": 2,
+            "line": 17,
+            "col": 3,
+            "lit": "gems-path"
+          },
+          "value": {
+            "type": 2,
+            "file": 2,
+            "line": 18,
+            "col": 5,
+            "map": [
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 18,
+                  "col": 5,
+                  "lit": "description"
+                },
+                "value": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 18,
+                  "col": 18,
+                  "lit": "Homebrew's Ruby gems path"
+                }
+              },
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 19,
+                  "col": 5,
+                  "lit": "value"
+                },
+                "value": {
+                  "type": 3,
+                  "file": 2,
+                  "line": 19,
+                  "col": 12,
+                  "expr": "steps.setup.outputs.gems-path"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key": {
+            "type": 0,
+            "file": 2,
+            "line": 20,
+            "col": 3,
+            "lit": "gems-hash"
+          },
+          "value": {
+            "type": 2,
+            "file": 2,
+            "line": 21,
+            "col": 5,
+            "map": [
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 21,
+                  "col": 5,
+                  "lit": "description"
+                },
+                "value": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 21,
+                  "col": 18,
+                  "lit": "Homebrew's Ruby Gemfile.lock sha256sum"
+                }
+              },
+              {
+                "key": {
+                  "type": 0,
+                  "file": 2,
+                  "line": 22,
+                  "col": 5,
+                  "lit": "value"
+                },
+                "value": {
+                  "type": 3,
+                  "file": 2,
+                  "line": 22,
+                  "col": 12,
+                  "expr": "steps.setup.outputs.gems-hash"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-02-01 20:39:14Z INFO ActionManager] Load 1 action steps.
+[2021-02-01 20:39:14Z INFO ActionManager] Load: 2 number of outputs
+[2021-02-01 20:39:14Z INFO ActionManager] Details: {
+  "type": 2,
+  "file": 2,
+  "line": 17,
+  "col": 3,
+  "map": [
+    {
+      "key": {
+        "type": 0,
+        "file": 2,
+        "line": 17,
+        "col": 3,
+        "lit": "gems-path"
+      },
+      "value": {
+        "type": 2,
+        "file": 2,
+        "line": 18,
+        "col": 5,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 2,
+              "line": 18,
+              "col": 5,
+              "lit": "description"
+            },
+            "value": {
+              "type": 0,
+              "file": 2,
+              "line": 18,
+              "col": 18,
+              "lit": "Homebrew's Ruby gems path"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 2,
+              "line": 19,
+              "col": 5,
+              "lit": "value"
+            },
+            "value": {
+              "type": 3,
+              "file": 2,
+              "line": 19,
+              "col": 12,
+              "expr": "steps.setup.outputs.gems-path"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": {
+        "type": 0,
+        "file": 2,
+        "line": 20,
+        "col": 3,
+        "lit": "gems-hash"
+      },
+      "value": {
+        "type": 2,
+        "file": 2,
+        "line": 21,
+        "col": 5,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 2,
+              "line": 21,
+              "col": 5,
+              "lit": "description"
+            },
+            "value": {
+              "type": 0,
+              "file": 2,
+              "line": 21,
+              "col": 18,
+              "lit": "Homebrew's Ruby Gemfile.lock sha256sum"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 2,
+              "line": 22,
+              "col": 5,
+              "lit": "value"
+            },
+            "value": {
+              "type": 3,
+              "file": 2,
+              "line": 22,
+              "col": 12,
+              "expr": "steps.setup.outputs.gems-hash"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Temp': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp'
+[2021-02-01 20:39:14Z INFO ActionRunner] Write event payload to /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp/_github_workflow/event.json
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Temp': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp'
+[2021-02-01 20:39:14Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2021-02-01 20:39:14Z INFO ActionManifestManager] Input 'test-bot': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 11,
+  "col": 14,
+  "lit": "true"
+}
+[2021-02-01 20:39:14Z INFO ActionManifestManager] Input 'debug': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 15,
+  "col": 14,
+  "lit": "false"
+}
+[2021-02-01 20:39:14Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command set-env
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command set-output
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command save-state
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command add-path
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command warning
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command error
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command debug
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command group
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command echo
+[2021-02-01 20:39:14Z INFO CompositeActionHandler] Processing composite step: DisplayName='run'
+[2021-02-01 20:39:14Z INFO CompositeActionHandler] Initialize Env context for step
+[2021-02-01 20:39:14Z INFO CompositeActionHandler] Starting the step.
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Temp': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp'
+[2021-02-01 20:39:14Z INFO ActionRunner] Write event payload to /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp/_github_workflow/event.json
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Temp': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp'
+[2021-02-01 20:39:14Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2021-02-01 20:39:14Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command set-env
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command set-output
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command save-state
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command add-path
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command warning
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command error
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command debug
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command group
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2021-02-01 20:39:14Z INFO ActionCommandManager] Register action command extension for command echo
+[2021-02-01 20:39:14Z INFO ScriptHandler] Which: 'bash'
+[2021-02-01 20:39:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6e4d85d8-f516-5c2d-cf85-bd31ea34bd0b', success rate: 1/1.
+[2021-02-01 20:39:14Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2021-02-01 20:39:14Z INFO ScriptHandler] Location: '/bin/bash'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Work': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work'
+[2021-02-01 20:39:14Z INFO HostContext] Well known directory 'Temp': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp'
+[2021-02-01 20:39:14Z INFO ScriptHandler] Which: 'bash'
+[2021-02-01 20:39:14Z INFO ScriptHandler] Location: '/bin/bash'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   File name: '/bin/bash'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   Arguments: '--noprofile --norc -e -o pipefail /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp/bcd4010f-a777-4004-8922-aa6e4104d261.sh'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/homebrew-test-bot/homebrew-test-bot'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:14Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:15Z INFO ProcessInvokerWrapper] Process started with process id 73694, waiting for process exit.
+[2021-02-01 20:39:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6e4d85d8-f516-5c2d-cf85-bd31ea34bd0b', success rate: 1/1.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Finished process 73694 with exit code 1, and elapsed time 00:00:02.3799613.
+[2021-02-01 20:39:17Z INFO CompositeActionHandler] Step result: Failed
+[2021-02-01 20:39:17Z INFO StepsRunner] Step result: Failed
+[2021-02-01 20:39:17Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Cache Homebrew Bundler RubyGems'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Install Homebrew Bundler RubyGems'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: (success() && (steps.cache.outputs.cache-hit != 'true'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Expanded: (false && (steps['cache']['outputs']['cache-hit'] != 'true'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run brew test-bot --only-cleanup-before'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run brew test-bot --only-setup'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run brew test-bot --only-tap-syntax'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Set up Ruby'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: (success() && (matrix.os == 'ubuntu-latest'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Expanded: (false && (matrix['os'] == 'ubuntu-latest'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Install Bundler'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: (success() && (matrix.os == 'ubuntu-latest'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Expanded: (false && (matrix['os'] == 'ubuntu-latest'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Install Homebrew/homebrew-test-bot RubyGems'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run Homebrew/homebrew-test-bot RSpec tests'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Build Docker image'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: (success() && (matrix.os == 'ubuntu-latest'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Expanded: (false && (matrix['os'] == 'ubuntu-latest'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run brew test-bot --only-formulae --test-default-formula'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Output brew test-bot failures'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: (success() && (matrix.os == 'macOS-latest'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Expanded: (false && (matrix['os'] == 'macOS-latest'))
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run brew test-bot --only-cleanup-after'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run brew test-bot --ci-upload --dry-run'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run brew test-bot --only-setup --dry-run'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO StepsRunner] Processing step: DisplayName='Run brew test-bot testbottest --only-formulae --dry-run'
+[2021-02-01 20:39:17Z INFO StepsRunner] Initialize Env context for step
+[2021-02-01 20:39:17Z INFO StepsRunner] Evaluating: success()
+[2021-02-01 20:39:17Z INFO StepsRunner] Result: false
+[2021-02-01 20:39:17Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-02-01 20:39:17Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-02-01 20:39:17Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-02-01 20:39:17Z INFO JobRunner] Finalize job.
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Diag': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_diag'
+[2021-02-01 20:39:17Z INFO JobExtension] Initialize Env context
+[2021-02-01 20:39:17Z INFO JobExtension] Initialize steps context
+[2021-02-01 20:39:17Z INFO JobExtension] Total accessible running process: 220.
+[2021-02-01 20:39:17Z INFO JobExtension] Inspecting process environment variables. PID: 73757 (mdworker_shared)
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73757 -o command`
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73757 -o command'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Process started with process id 73758, waiting for process exit.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Finished process 73758 with exit code 0, and elapsed time 00:00:00.0439121.
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73757
+[2021-02-01 20:39:17Z INFO JobExtension] Inspecting process environment variables. PID: 73756 (mdworker_shared)
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73756 -o command`
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73756 -o command'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Process started with process id 73760, waiting for process exit.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Finished process 73760 with exit code 0, and elapsed time 00:00:00.1024760.
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73756
+[2021-02-01 20:39:17Z INFO JobExtension] Inspecting process environment variables. PID: 73755 (mdworker_shared)
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73755 -o command`
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73755 -o command'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Process started with process id 73763, waiting for process exit.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record '6e4d85d8-f516-5c2d-cf85-bd31ea34bd0b', success rate: 1/1.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Finished process 73763 with exit code 0, and elapsed time 00:00:00.0529142.
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73755
+[2021-02-01 20:39:17Z INFO JobExtension] Inspecting process environment variables. PID: 73751 (mdworker_shared)
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73751 -o command`
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73751 -o command'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Process started with process id 73764, waiting for process exit.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Finished process 73764 with exit code 0, and elapsed time 00:00:00.0372861.
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73751
+[2021-02-01 20:39:17Z INFO JobExtension] Inspecting process environment variables. PID: 73750 (mdworker_shared)
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73750 -o command`
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73750 -o command'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Process started with process id 73765, waiting for process exit.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Finished process 73765 with exit code 0, and elapsed time 00:00:00.0378524.
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73750
+[2021-02-01 20:39:17Z INFO JobExtension] Inspecting process environment variables. PID: 73734 (mdworker_shared)
+[2021-02-01 20:39:17Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73734 -o command`
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:17Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73734 -o command'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] Process started with process id 73766, waiting for process exit.
+[2021-02-01 20:39:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Finished process 73766 with exit code 0, and elapsed time 00:00:00.0391960.
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73734
+[2021-02-01 20:39:18Z INFO JobExtension] Inspecting process environment variables. PID: 73731 (mdworker_shared)
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73731 -o command`
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73731 -o command'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record '87468cb9-aee6-41a9-8807-12bb479447e8', success rate: 1/1.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Process started with process id 73768, waiting for process exit.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Finished process 73768 with exit code 0, and elapsed time 00:00:00.0795871.
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73731
+[2021-02-01 20:39:18Z INFO JobExtension] Inspecting process environment variables. PID: 73727 (mdworker_shared)
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73727 -o command`
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73727 -o command'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Process started with process id 73769, waiting for process exit.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Finished process 73769 with exit code 0, and elapsed time 00:00:00.0411783.
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73727
+[2021-02-01 20:39:18Z INFO JobExtension] Inspecting process environment variables. PID: 73693 (mdworker_shared)
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73693 -o command`
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73693 -o command'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Process started with process id 73770, waiting for process exit.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Finished process 73770 with exit code 0, and elapsed time 00:00:00.0621370.
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73693
+[2021-02-01 20:39:18Z INFO JobExtension] Inspecting process environment variables. PID: 73692 (mdworker_shared)
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73692 -o command`
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73692 -o command'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Process started with process id 73771, waiting for process exit.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Finished process 73771 with exit code 0, and elapsed time 00:00:00.0372887.
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73692
+[2021-02-01 20:39:18Z INFO JobExtension] Inspecting process environment variables. PID: 73691 (mdworker_shared)
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 73691 -o command`
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Bin': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/bin'
+[2021-02-01 20:39:18Z INFO HostContext] Well known directory 'Root': '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Starting process:
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 73691 -o command'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Working directory: '/Users/rew/RubymineProjects/homebrew-test-bot/actions-runner'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Process started with process id 73772, waiting for process exit.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-02-01 20:39:18Z INFO ProcessInvokerWrapper] Finished process 73772 with exit code 0, and elapsed time 00:00:00.0391662.
+[2021-02-01 20:39:18Z INFO LinuxProcessExtensions] Successfully dump environment variables for 73691
+[2021-02-01 20:39:18Z INFO JobRunner] Job result after all job steps finish: Failed
+[2021-02-01 20:39:18Z INFO JobRunner] Completing the job execution context.
+[2021-02-01 20:39:18Z INFO JobRunner] Shutting down the job server queue.
+[2021-02-01 20:39:18Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2021-02-01 20:39:19Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2021-02-01 20:39:20Z INFO JobServerQueue] All queue process task stopped.
+[2021-02-01 20:39:20Z INFO JobServerQueue] Web console line queue drained.
+[2021-02-01 20:39:20Z INFO JobServerQueue] Uploading 2 files in one shot.
+[2021-02-01 20:39:21Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2021-02-01 20:39:21Z INFO JobServerQueue] File upload queue drained.
+[2021-02-01 20:39:21Z INFO JobServerQueue] Timeline update queue drained.
+[2021-02-01 20:39:21Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2021-02-01 20:39:21Z INFO TempDirectoryManager] Cleaning runner temp folder: /Users/rew/RubymineProjects/homebrew-test-bot/actions-runner/_work/_temp
+[2021-02-01 20:39:21Z INFO JobRunner] Raising job completed event.
+[2021-02-01 20:39:21Z INFO Worker] Job completed.

@@ -1,4 +1,5 @@
 codecov:
+  runs-on: self-hosted
   token: "${TOKEN}"
   bot: "codecov-io"
   ci:

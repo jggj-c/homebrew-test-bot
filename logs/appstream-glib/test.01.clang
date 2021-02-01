@@ -1,0 +1,23 @@
+2021-02-02 10:02:06 +1300
+
+/usr/bin/clang
+test.c
+-o
+test
+-I/usr/local/opt/gdk-pixbuf/include/gdk-pixbuf-2.0
+-I/usr/local/opt/gettext/include
+-I/usr/local/opt/glib/include/gio-unix-2.0/
+-I/usr/local/opt/glib/include/glib-2.0
+-I/usr/local/opt/glib/lib/glib-2.0/include
+-I/usr/local/Cellar/appstream-glib/0.7.18/include/libappstream-glib
+-L/usr/local/opt/gdk-pixbuf/lib
+-L/usr/local/opt/gettext/lib
+-L/usr/local/opt/glib/lib
+-L/usr/local/Cellar/appstream-glib/0.7.18/lib
+-lappstream-glib
+-lgdk_pixbuf-2.0
+-lgio-2.0
+-lglib-2.0
+-lgobject-2.0
+-lintl
+

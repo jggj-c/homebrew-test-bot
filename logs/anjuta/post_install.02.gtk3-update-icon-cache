@@ -1,0 +1,8 @@
+2021-02-02 09:53:52 +1300
+
+/usr/local/opt/gtk+3/bin/gtk3-update-icon-cache
+-f
+-t
+/usr/local/share/icons/hicolor
+
+gtk3-update-icon-cache: Cache file created successfully.
